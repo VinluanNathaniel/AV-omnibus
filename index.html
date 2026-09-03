@@ -39,16 +39,30 @@
         :root {
 
             --abenson-blue: #111a9e;
+
             --dark-blue: #082b8f;
+
             --blue: #075eb7;
+
             --blue-light: #1598d0;
+
             --cyan: #27c5e8;
+
             --sky-blue: #75d6ef;
+
             --pale-blue: #e9faff;
+
             --white: #ffffff;
+
             --text-dark: #122b6d;
+
             --text: #315878;
+
             --border: #b9e8f2;
+
+            --success: #0f9d58;
+
+            --success-light: #e9f9ef;
 
             --shadow:
                 0 5px 18px rgba(0, 65, 130, .12);
@@ -511,9 +525,7 @@
 
 
         /* =========================================
-           FILE UPLOAD CARD
-           
-           MANUAL UPLOAD IS NOW A BACKUP OPTION
+           OMNIBUS STATUS CARD
            ========================================= */
 
         .search-container {
@@ -584,78 +596,99 @@
         }
 
 
-        .input-group {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                10px;
-
-        }
-
-
         /* =========================================
-           FILE INPUT
+           ALREADY UPLOADED STATUS
            ========================================= */
 
-        #fileInput {
+        .already-uploaded {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
 
             width:
                 100%;
 
             padding:
-                11px;
+                12px 16px;
+
+            background:
+                var(--success-light);
+
+            color:
+                var(--success);
 
             border:
                 1px solid
-                var(--cyan);
+                rgba(15,157,88,.30);
 
             border-radius:
                 9px;
-
-            background:
-                var(--pale-blue);
-
-            color:
-                var(--abenson-blue);
 
             font-size:
                 13px;
 
             font-weight:
-                600;
+                800;
 
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
+            box-shadow:
+                0 3px 10px
+                rgba(15,157,88,.08);
 
         }
 
 
-        #fileInput:hover {
+        .status-dot {
+
+            width:
+                9px;
+
+            height:
+                9px;
 
             background:
-                #dcf7fc;
+                #18b866;
 
-            border-color:
-                var(--blue);
+            border-radius:
+                50%;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(24,184,102,.12);
+
+            animation:
+                statusPulse 2s infinite;
 
         }
 
 
-        #fileInput:focus {
+        @keyframes statusPulse {
 
-            outline:
-                none;
+            0% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(24,184,102,.25);
+            }
 
-            border-color:
-                var(--abenson-blue);
+            70% {
+                box-shadow:
+                    0 0 0 7px
+                    rgba(24,184,102,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(24,184,102,0);
+            }
 
         }
 
@@ -1473,6 +1506,17 @@
             }
 
 
+            .already-uploaded {
+
+                font-size:
+                    11px;
+
+                padding:
+                    11px 10px;
+
+            }
+
+
             .upload-reminder {
 
                 font-size:
@@ -1666,7 +1710,7 @@
 
 
     <!-- =========================================
-         AUTOMATIC OMNIBUS STATUS
+         OMNIBUS STATUS
          ========================================= -->
 
     <div class="search-container">
@@ -1675,20 +1719,31 @@
             📂 Omnibus Database
         </div>
 
-        <div class="upload-description" id="uploadDescription">
+        <div
+            class="upload-description"
+            id="uploadDescription"
+        >
 
-            🔄 Loading the latest Omnibus automatically...
+            Automatically connected to the latest
+            Omnibus database.
 
         </div>
 
-        <div class="input-group">
 
-            <input
-                type="file"
-                id="fileInput"
-                accept=".xlsx,.csv"
-                title="Manual upload backup"
-            >
+        <!-- =====================================
+             ALREADY UPLOADED
+             ===================================== -->
+
+        <div
+            class="already-uploaded"
+            id="uploadStatus"
+        >
+
+            <span class="status-dot"></span>
+
+            <span>
+                ALREADY UPLOADED
+            </span>
 
         </div>
 
@@ -1776,28 +1831,11 @@
 
         let omnibusUploaded = false;
 
-
-        /* =========================================
-           FILE INPUT
-           ========================================= */
-
-        document
-            .getElementById('fileInput')
-            .addEventListener(
-                'change',
-                handleFile
-            );
+        let searchableSheetCount = 0;
 
 
         /* =========================================
            AUTOMATIC OMNIBUS LOADING
-           
-           The website automatically loads:
-           
-           ./omnibus.xlsx
-           
-           Cache busting is used so that a newly
-           uploaded GitHub Excel file is detected.
            ========================================= */
 
         window.addEventListener(
@@ -1812,6 +1850,13 @@
 
         /* =========================================
            LOAD DEFAULT OMNIBUS
+           
+           The Excel file must be:
+
+           omnibus.xlsx
+
+           and must be located in the same
+           folder as index.html.
            ========================================= */
 
         async function loadDefaultOmnibus() {
@@ -1826,6 +1871,11 @@
                     'uploadDescription'
                 );
 
+            const uploadStatus =
+                document.getElementById(
+                    'uploadStatus'
+                );
+
             const searchBox =
                 document.getElementById(
                     'searchBox'
@@ -1835,11 +1885,40 @@
             try {
 
                 /* =====================================
-                   SHOW LOADING STATUS
+                   SHOW LOADING
                    ===================================== */
 
-                uploadDescription.textContent =
+                uploadDescription.innerHTML =
                     "🔄 Loading the latest Omnibus automatically...";
+
+
+                uploadStatus.innerHTML = `
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        LOADING OMNIBUS...
+                    </span>
+
+                `;
+
+
+                uploadStatus.style.background =
+                    "#fff8e6";
+
+                uploadStatus.style.color =
+                    "#9a6700";
+
+                uploadStatus.style.borderColor =
+                    "rgba(154,103,0,.25)";
+
+
+                searchBox.disabled =
+                    true;
+
+                searchBox.placeholder =
+                    "🔄 Loading Omnibus...";
+
 
                 results.innerHTML = `
 
@@ -1849,24 +1928,20 @@
 
                         <br><br>
 
-                        Please wait while the database is being prepared.
+                        Please wait while the database
+                        is being prepared.
 
                     </p>
 
                 `;
 
-                searchBox.disabled =
-                    true;
-
-                searchBox.placeholder =
-                    "🔄 Loading Omnibus...";
-
 
                 /* =====================================
-                   FETCH OMNIBUS FROM SAME FOLDER
-                   
-                   Cache busting:
-                   ?v=current timestamp
+                   FETCH OMNIBUS
+
+                   Cache busting ensures that when
+                   you replace omnibus.xlsx on GitHub,
+                   the browser requests the newest copy.
                    ===================================== */
 
                 const response =
@@ -1894,7 +1969,7 @@
 
 
                 /* =====================================
-                   READ FILE AS ARRAY BUFFER
+                   READ FILE
                    ===================================== */
 
                 const arrayBuffer =
@@ -1902,7 +1977,7 @@
 
 
                 /* =====================================
-                   READ EXCEL
+                   READ WORKBOOK
                    ===================================== */
 
                 const workbook =
@@ -1931,19 +2006,48 @@
                 omnibusUploaded =
                     true;
 
+
                 searchBox.disabled =
                     false;
+
 
                 searchBox.placeholder =
                     "🔎 Search by SKU or keyword...";
 
 
                 /* =====================================
-                   SHOW READY MESSAGE
+                   CHANGE STATUS TO
+                   ALREADY UPLOADED
                    ===================================== */
 
                 uploadDescription.innerHTML =
-                    "✅ Latest Omnibus loaded automatically.";
+                    "Latest Omnibus is connected and ready for searching.";
+
+
+                uploadStatus.innerHTML = `
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        ALREADY UPLOADED
+                    </span>
+
+                `;
+
+
+                uploadStatus.style.background =
+                    "var(--success-light)";
+
+                uploadStatus.style.color =
+                    "var(--success)";
+
+                uploadStatus.style.borderColor =
+                    "rgba(15,157,88,.30)";
+
+
+                /* =====================================
+                   SHOW READY MESSAGE
+                   ===================================== */
 
                 results.innerHTML = `
 
@@ -1975,6 +2079,7 @@
 
             }
 
+
             catch(error) {
 
                 console.error(
@@ -1990,44 +2095,66 @@
                 omnibusUploaded =
                     false;
 
+
                 searchBox.disabled =
                     true;
 
+
                 searchBox.placeholder =
-                    "🔎 Please upload the Omnibus first...";
-
-
-                uploadDescription.innerHTML =
-                    "⚠️ Automatic loading failed. Manual upload is available below.";
+                    "⚠️ Omnibus unavailable";
 
 
                 /* =====================================
-                   SHOW ERROR
+                   SHOW ERROR STATUS
                    ===================================== */
+
+                uploadDescription.innerHTML =
+                    "⚠️ Unable to connect to the Omnibus database.";
+
+
+                uploadStatus.innerHTML = `
+
+                    <span>
+                        ⚠️ OMNIBUS UNAVAILABLE
+                    </span>
+
+                `;
+
+
+                uploadStatus.style.background =
+                    "#fff0f0";
+
+                uploadStatus.style.color =
+                    "#c62828";
+
+                uploadStatus.style.borderColor =
+                    "rgba(198,40,40,.25)";
+
 
                 results.innerHTML = `
 
                     <p class="upload-reminder">
 
-                        ⚠️ <strong>Automatic Omnibus loading failed.</strong>
+                        ⚠️ <strong>Omnibus could not be loaded.</strong>
 
                         <br><br>
 
-                        Make sure your Excel file is named:
+                        Please make sure that:
 
                         <br>
 
+                        1️⃣ The Excel file is named
                         <strong>omnibus.xlsx</strong>
 
-                        <br><br>
+                        <br>
 
-                        and is located in the same GitHub folder
-                        as <strong>index.html</strong>.
+                        2️⃣ It is uploaded to the same
+                        GitHub folder as <strong>index.html</strong>
 
-                        <br><br>
+                        <br>
 
-                        You can also use the manual upload
-                        option above.
+                        3️⃣ The GitHub Pages site has
+                        finished updating.
 
                     </p>
 
@@ -2039,19 +2166,7 @@
 
 
         /* =========================================
-           GLOBAL SEARCHABLE SHEET COUNT
-           ========================================= */
-
-        let searchableSheetCount = 0;
-
-
-        /* =========================================
            PROCESS WORKBOOK
-           
-           This function is shared by:
-           
-           1. Automatic GitHub Excel loading
-           2. Manual Excel upload
            ========================================= */
 
         function processWorkbook(workbook) {
@@ -2274,181 +2389,6 @@
 
                 }
 
-            );
-
-        }
-
-
-        /* =========================================
-           HANDLE MANUAL FILE
-           
-           This remains available as a backup.
-           ========================================= */
-
-        function handleFile(event) {
-
-            const file =
-                event.target.files[0];
-
-
-            if (!file) {
-
-                return;
-
-            }
-
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(e) {
-
-                    try {
-
-                        /* =====================================
-                           READ WORKBOOK
-                           ===================================== */
-
-                        const workbook =
-                            XLSX.read(
-                                e.target.result,
-                                {
-                                    type:
-                                        'binary'
-                                }
-                            );
-
-
-                        /* =====================================
-                           PROCESS WORKBOOK
-                           ===================================== */
-
-                        processWorkbook(
-                            workbook
-                        );
-
-
-                        /* =====================================
-                           ENABLE SEARCH
-                           ===================================== */
-
-                        omnibusUploaded =
-                            true;
-
-
-                        const searchBox =
-                            document.getElementById(
-                                'searchBox'
-                            );
-
-
-                        searchBox.disabled =
-                            false;
-
-
-                        searchBox.placeholder =
-                            "🔎 Search by SKU or keyword...";
-
-
-                        /* =====================================
-                           SHOW READY MESSAGE
-                           ===================================== */
-
-                        document.getElementById(
-                            'uploadDescription'
-                        ).innerHTML =
-                            "✅ Manual Omnibus loaded successfully.";
-
-
-                        document.getElementById(
-                            'results'
-                        ).innerHTML = `
-
-                            <p class="upload-reminder">
-
-                                ✅ <strong>Omnibus successfully uploaded!</strong>
-
-                                <br><br>
-
-                                📚 ${
-                                    searchableSheetCount
-                                }
-                                searchable sheet(s)
-
-                                <br>
-
-                                📊 ${
-                                    data.length.toLocaleString()
-                                }
-                                records ready for searching
-
-                                <br><br>
-
-                                🔎 Search by SKU or keyword.
-
-                            </p>
-
-                        `;
-
-                    }
-
-                    catch(error) {
-
-                        console.error(
-                            error
-                        );
-
-
-                        omnibusUploaded =
-                            false;
-
-
-                        const searchBox =
-                            document.getElementById(
-                                'searchBox'
-                            );
-
-
-                        searchBox.disabled =
-                            true;
-
-
-                        searchBox.placeholder =
-                            "🔎 Unable to read file";
-
-
-                        document.getElementById(
-                            'uploadDescription'
-                        ).innerHTML =
-                            "⚠️ Unable to read this file.";
-
-
-                        document.getElementById(
-                            'results'
-                        ).innerHTML = `
-
-                            <p class="upload-reminder">
-
-                                ⚠️ Unable to read this file.
-
-                                <br>
-
-                                Please upload a valid
-                                Excel or CSV file.
-
-                            </p>
-
-                        `;
-
-                    }
-
-                };
-
-
-            reader.readAsBinaryString(
-                file
             );
 
         }
