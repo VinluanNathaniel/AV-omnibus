@@ -21,73 +21,42 @@
 
     <style>
 
-        /* =========================================
-           RESET
-           ========================================= */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
-        /* =========================================
-           ABENSON COLORS
-           ========================================= */
-
         :root {
-
             --abenson-blue: #111a9e;
-
             --dark-blue: #082b8f;
-
             --blue: #075eb7;
-
             --blue-light: #1598d0;
-
             --cyan: #27c5e8;
-
             --sky-blue: #75d6ef;
-
             --pale-blue: #e9faff;
-
             --white: #ffffff;
-
             --text-dark: #122b6d;
-
             --text: #315878;
-
             --border: #b9e8f2;
 
             --shadow:
                 0 5px 18px rgba(0, 65, 130, .12);
-
         }
 
-
-        /* =========================================
-           BODY
-           ========================================= */
-
         body {
-
             font-family:
                 'Inter',
                 Arial,
                 sans-serif;
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            min-height:
-                100vh;
+            min-height: 100vh;
 
-            overflow-x:
-                hidden;
+            overflow-x: hidden;
 
             background:
-
                 linear-gradient(
                     180deg,
                     #76d5ee 0%,
@@ -97,93 +66,58 @@
                     #ffffff 100%
                 );
 
-            padding-bottom:
-                105px;
-
+            padding-bottom: 105px;
         }
 
-
-        /* =========================================
-           SUBTLE BACKGROUND
-           ========================================= */
-
         body::before {
-
             content: "";
 
             position: fixed;
 
-            width:
-                600px;
+            width: 600px;
+            height: 180px;
 
-            height:
-                180px;
-
-            top:
-                80px;
-
-            left:
-                -180px;
+            top: 80px;
+            left: -180px;
 
             background:
                 rgba(255,255,255,.32);
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            filter:
-                blur(35px);
+            filter: blur(35px);
 
-            transform:
-                rotate(-8deg);
+            transform: rotate(-8deg);
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
-            z-index:
-                -1;
-
+            z-index: -1;
         }
 
-
         body::after {
-
             content: "";
 
             position: fixed;
 
-            width:
-                550px;
+            width: 550px;
+            height: 160px;
 
-            height:
-                160px;
-
-            top:
-                180px;
-
-            right:
-                -180px;
+            top: 180px;
+            right: -180px;
 
             background:
                 rgba(255,255,255,.28);
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            filter:
-                blur(40px);
+            filter: blur(40px);
 
-            transform:
-                rotate(-8deg);
+            transform: rotate(-8deg);
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
-            z-index:
-                -1;
-
+            z-index: -1;
         }
-
 
         /* =========================================
            PASSWORD SCREEN
@@ -191,72 +125,55 @@
 
         #passwordScreen {
 
-            position:
-                fixed;
+            position: fixed;
 
-            inset:
-                0;
+            inset: 0;
 
-            z-index:
-                999999;
+            z-index: 999999;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            padding:
-                20px;
+            padding: 20px;
 
             background:
-
                 linear-gradient(
                     180deg,
                     #76d5ee 0%,
-                    #a8e7f5 25%,
-                    #d8f5fb 55%,
-                    #f3fcfe 80%,
+                    #b8ebf7 45%,
                     #ffffff 100%
                 );
-
         }
-
 
         .password-card {
 
-            width:
-                min(420px, 100%);
+            width: 100%;
 
-            padding:
-                35px 28px;
+            max-width: 430px;
+
+            padding: 35px 28px;
+
+            text-align: center;
 
             background:
                 rgba(255,255,255,.97);
 
             border:
-                1px solid
-                var(--border);
+                1px solid var(--border);
 
             border-top:
-                5px solid
-                var(--cyan);
+                4px solid var(--cyan);
 
             border-radius:
                 18px;
 
             box-shadow:
-                0 10px 35px
-                rgba(0,65,130,.18);
-
-            text-align:
-                center;
+                0 15px 45px rgba(0,70,130,.18);
 
         }
-
 
         .password-brand {
 
@@ -264,7 +181,7 @@
                 var(--abenson-blue);
 
             font-size:
-                38px;
+                clamp(38px, 10vw, 55px);
 
             font-weight:
                 800;
@@ -273,13 +190,12 @@
                 .9;
 
             letter-spacing:
-                -2px;
+                -3px;
 
             margin-bottom:
                 7px;
 
         }
-
 
         .password-appliance {
 
@@ -287,7 +203,7 @@
                 var(--blue);
 
             font-size:
-                23px;
+                26px;
 
             font-weight:
                 900;
@@ -295,65 +211,20 @@
             font-style:
                 italic;
 
-            letter-spacing:
-                -1px;
-
             transform:
                 skewX(-7deg);
 
             margin-bottom:
-                5px;
-
+                18px;
         }
 
-
-        .password-fest {
-
-            display:
-                inline-block;
-
-            padding:
-                3px 22px 5px;
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    #153d9b,
-                    #159bd1
-                );
-
-            color:
-                white;
-
-            font-size:
-                23px;
-
-            font-weight:
-                900;
-
-            line-height:
-                1;
-
-            letter-spacing:
-                1px;
-
-            transform:
-                skewX(-3deg);
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .password-icon {
+        .lock-icon {
 
             width:
-                62px;
+                65px;
 
             height:
-                62px;
+                65px;
 
             margin:
                 0 auto 15px;
@@ -367,21 +238,18 @@
             justify-content:
                 center;
 
+            border-radius:
+                50%;
+
             background:
                 #e6f9fd;
 
             border:
-                1px solid
-                var(--cyan);
-
-            border-radius:
-                50%;
+                2px solid var(--cyan);
 
             font-size:
-                27px;
-
+                30px;
         }
-
 
         .password-title {
 
@@ -396,9 +264,7 @@
 
             margin-bottom:
                 7px;
-
         }
-
 
         .password-description {
 
@@ -412,10 +278,8 @@
                 1.5;
 
             margin-bottom:
-                18px;
-
+                20px;
         }
-
 
         #passwordInput {
 
@@ -425,48 +289,40 @@
             padding:
                 13px 15px;
 
-            background:
-                #ffffff;
-
-            color:
-                var(--abenson-blue);
-
             border:
-                2px solid
-                #94a3b8;
+                2px solid #94a3b8;
 
             border-radius:
                 10px;
 
+            background:
+                white;
+
+            color:
+                var(--abenson-blue);
+
             font-size:
                 14px;
-
-            font-weight:
-                600;
 
             text-align:
                 center;
 
-            transition:
-                all .2s ease;
-
-        }
-
-
-        #passwordInput:focus {
-
             outline:
                 none;
 
+            transition:
+                .2s;
+        }
+
+        #passwordInput:focus {
+
             border-color:
-                #0369a1;
+                var(--blue);
 
             box-shadow:
                 0 0 0 4px
                 rgba(3,105,161,.15);
-
         }
-
 
         #passwordButton {
 
@@ -474,7 +330,7 @@
                 100%;
 
             margin-top:
-                12px;
+                11px;
 
             padding:
                 13px;
@@ -486,7 +342,6 @@
                 10px;
 
             background:
-
                 linear-gradient(
                     90deg,
                     var(--abenson-blue),
@@ -507,10 +362,8 @@
                 pointer;
 
             transition:
-                all .2s ease;
-
+                .2s;
         }
-
 
         #passwordButton:hover {
 
@@ -519,43 +372,26 @@
 
             box-shadow:
                 0 5px 15px
-                rgba(0,65,130,.20);
-
+                rgba(0,70,130,.2);
         }
-
 
         #passwordError {
 
-            display:
-                none;
+            min-height:
+                18px;
 
             margin-top:
-                12px;
-
-            padding:
-                9px;
-
-            background:
-                #fff1f1;
-
-            border:
-                1px solid
-                #ffb5b5;
-
-            border-radius:
-                8px;
+                10px;
 
             color:
-                #c62828;
+                #dc2626;
 
             font-size:
                 11px;
 
             font-weight:
                 700;
-
         }
-
 
         .password-footer {
 
@@ -563,25 +399,21 @@
                 18px;
 
             color:
-                #7190a3;
+                #8aa0af;
 
             font-size:
                 9px;
-
         }
 
-
         /* =========================================
-           MAIN WEBSITE
+           MAIN APPLICATION
            ========================================= */
 
-        #mainContent {
+        #app {
 
             display:
                 none;
-
         }
-
 
         /* =========================================
            HEADER
@@ -589,14 +421,12 @@
 
         header {
 
-            width:
-                100%;
+            width: 100%;
 
             padding:
                 20px 15px 25px;
 
-            text-align:
-                center;
+            text-align: center;
 
             background:
                 rgba(255,255,255,.10);
@@ -604,13 +434,7 @@
             border-bottom:
                 2px solid
                 rgba(17,26,158,.15);
-
         }
-
-
-        /* =========================================
-           BRAND
-           ========================================= */
 
         .brand {
 
@@ -622,9 +446,7 @@
 
             align-items:
                 center;
-
         }
-
 
         .abenson {
 
@@ -645,9 +467,7 @@
 
             text-transform:
                 lowercase;
-
         }
-
 
         .appliance {
 
@@ -674,17 +494,13 @@
 
             transform:
                 skewX(-7deg);
-
         }
-
 
         .fest-wrapper {
 
             margin-top:
                 3px;
-
         }
-
 
         .fest {
 
@@ -695,7 +511,6 @@
                 3px 28px 5px;
 
             background:
-
                 linear-gradient(
                     90deg,
                     #153d9b,
@@ -723,9 +538,7 @@
             box-shadow:
                 0 4px 8px
                 rgba(0,65,130,.12);
-
         }
-
 
         .engine-title {
 
@@ -763,9 +576,7 @@
             box-shadow:
                 0 3px 10px
                 rgba(0,70,130,.08);
-
         }
-
 
         /* =========================================
            PROMO CARDS
@@ -790,9 +601,7 @@
 
             gap:
                 8px;
-
         }
-
 
         .promo-card {
 
@@ -827,9 +636,7 @@
 
             transition:
                 .2s;
-
         }
-
 
         .promo-card:hover {
 
@@ -842,9 +649,7 @@
             box-shadow:
                 0 5px 14px
                 rgba(0,70,130,.13);
-
         }
-
 
         .promo-icon {
 
@@ -874,9 +679,7 @@
 
             font-size:
                 15px;
-
         }
-
 
         .promo-card strong {
 
@@ -894,9 +697,7 @@
 
             line-height:
                 1.2;
-
         }
-
 
         .promo-card span {
 
@@ -914,12 +715,10 @@
 
             line-height:
                 1.2;
-
         }
 
-
         /* =========================================
-           FILE UPLOAD CARD
+           AUTOMATIC OMNIBUS STATUS
            ========================================= */
 
         .search-container {
@@ -955,9 +754,7 @@
 
             text-align:
                 center;
-
         }
-
 
         .upload-title {
 
@@ -972,9 +769,7 @@
 
             margin-bottom:
                 5px;
-
         }
-
 
         .upload-description {
 
@@ -986,135 +781,49 @@
 
             margin-bottom:
                 13px;
-
         }
 
-
-        .input-group {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                10px;
-
-        }
-
-
-        /* =========================================
-           FILE INPUT
-           ========================================= */
-
-        #fileInput {
-
-            width:
-                100%;
+        .status-box {
 
             padding:
                 11px;
 
+            background:
+                #e9faff;
+
             border:
-                1px solid
-                var(--cyan);
+                1px solid var(--cyan);
 
             border-radius:
                 9px;
 
-            background:
-                var(--pale-blue);
-
             color:
                 var(--abenson-blue);
 
             font-size:
-                13px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
-
-        }
-
-
-        #fileInput:hover {
-
-            background:
-                #dcf7fc;
-
-            border-color:
-                var(--blue);
-
-        }
-
-
-        #fileInput:focus {
-
-            outline:
-                none;
-
-            border-color:
-                var(--abenson-blue);
-
-        }
-
-
-        /* =========================================
-           UPLOAD REMINDER
-           ========================================= */
-
-        .upload-reminder {
-
-            width:
-                92%;
-
-            max-width:
-                650px;
-
-            margin:
-                18px auto;
-
-            padding:
-                15px;
-
-            text-align:
-                center;
-
-            color:
-                var(--abenson-blue);
-
-            font-size:
-                13px;
-
-            font-weight:
-                500;
-
-            line-height:
-                1.6;
-
-            background:
-                rgba(255,255,255,.92);
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
                 12px;
 
-            box-shadow:
-                0 4px 14px
-                rgba(0,70,130,.07);
-
+            font-weight:
+                700;
         }
 
+        .status-loading {
+
+            color:
+                #64748b;
+        }
+
+        .status-ready {
+
+            color:
+                #15803d;
+        }
+
+        .status-error {
+
+            color:
+                #dc2626;
+        }
 
         /* =========================================
            RESULTS
@@ -1139,13 +848,7 @@
 
             padding-bottom:
                 15px;
-
         }
-
-
-        /* =========================================
-           RESULTS INFO
-           ========================================= */
 
         .results-info {
 
@@ -1181,9 +884,7 @@
             box-shadow:
                 0 3px 10px
                 rgba(0,70,130,.07);
-
         }
-
 
         /* =========================================
            TABLE
@@ -1214,13 +915,7 @@
 
             box-shadow:
                 var(--shadow);
-
         }
-
-
-        /* =========================================
-           TABLE HEADER
-           ========================================= */
 
         th {
 
@@ -1228,7 +923,6 @@
                 11px 12px;
 
             background:
-
                 linear-gradient(
                     90deg,
                     var(--abenson-blue),
@@ -1263,13 +957,7 @@
             border-bottom:
                 2px solid
                 var(--cyan);
-
         }
-
-
-        /* =========================================
-           TABLE CELLS
-           ========================================= */
 
         td {
 
@@ -1288,25 +976,13 @@
             border-bottom:
                 1px solid
                 #e2f0f4;
-
         }
-
-
-        /* =========================================
-           ALTERNATING ROWS
-           ========================================= */
 
         tbody tr:nth-child(even) td {
 
             background:
                 #f6fcfe;
-
         }
-
-
-        /* =========================================
-           HOVER
-           ========================================= */
 
         tbody tr:hover td {
 
@@ -1315,13 +991,7 @@
 
             color:
                 var(--abenson-blue);
-
         }
-
-
-        /* =========================================
-           SKU
-           ========================================= */
 
         td:first-child {
 
@@ -1330,13 +1000,7 @@
 
             font-weight:
                 700;
-
         }
-
-
-        /* =========================================
-           PRICE COLUMNS
-           ========================================= */
 
         td:nth-child(3),
         td:nth-child(4),
@@ -1350,13 +1014,7 @@
 
             white-space:
                 nowrap;
-
         }
-
-
-        /* =========================================
-           CLICKABLE EXCEL LINKS
-           ========================================= */
 
         .clickable-link {
 
@@ -1390,9 +1048,7 @@
 
             transition:
                 all .2s ease;
-
         }
-
 
         .clickable-link:hover {
 
@@ -1405,18 +1061,9 @@
             border-color:
                 var(--blue);
 
-            text-decoration:
-                none;
-
             transform:
                 translateY(-1px);
-
         }
-
-
-        /* =========================================
-           NO RESULTS
-           ========================================= */
 
         .no-results {
 
@@ -1431,9 +1078,7 @@
 
             padding:
                 20px;
-
         }
-
 
         .no-results img {
 
@@ -1455,9 +1100,7 @@
 
             box-shadow:
                 var(--shadow);
-
         }
-
 
         /* =========================================
            FLOATING BOTTOM PANEL
@@ -1491,13 +1134,7 @@
 
             gap:
                 6px;
-
         }
-
-
-        /* =========================================
-           MEMO
-           ========================================= */
 
         .reminder {
 
@@ -1533,13 +1170,7 @@
             box-shadow:
                 0 4px 14px
                 rgba(0,70,130,.10);
-
         }
-
-
-        /* =========================================
-           SEARCH BAR
-           ========================================= */
 
         #searchBox {
 
@@ -1557,10 +1188,10 @@
 
             border:
                 2px solid
-                var(--blue);
+                #94a3b8;
 
             border-radius:
-                30px;
+                10px;
 
             font-size:
                 13px;
@@ -1569,44 +1200,18 @@
                 500;
 
             box-shadow:
-                0 4px 15px
-                rgba(0,70,130,.12);
+                0 2px 6px
+                rgba(0,0,0,.08);
 
             transition:
-                .2s;
-
+                all .2s ease;
         }
-
 
         #searchBox::placeholder {
 
             color:
                 #7193a8;
-
         }
-
-
-        #searchBox {
-
-            background:
-                #ffffff;
-
-            border:
-                2px solid
-                #94a3b8;
-
-            border-radius:
-                10px;
-
-            box-shadow:
-                0 2px 6px
-                rgba(0, 0, 0, 0.08);
-
-            transition:
-                all 0.2s ease;
-
-        }
-
 
         #searchBox:focus {
 
@@ -1618,16 +1223,14 @@
 
             box-shadow:
                 0 0 0 4px
-                rgba(3, 105, 161, 0.22),
+                rgba(3,105,161,.22),
 
                 0 6px 18px
-                rgba(3, 105, 161, 0.18);
+                rgba(3,105,161,.18);
 
             transform:
                 translateY(-1px);
-
         }
-
 
         #searchBox:disabled {
 
@@ -1639,9 +1242,7 @@
 
             cursor:
                 not-allowed;
-
         }
-
 
         /* =========================================
            FOOTER
@@ -1670,9 +1271,7 @@
 
             font-size:
                 11px;
-
         }
-
 
         .footer-brand {
 
@@ -1684,9 +1283,7 @@
 
             margin-bottom:
                 3px;
-
         }
-
 
         .footer-small {
 
@@ -1695,13 +1292,7 @@
 
             opacity:
                 .9;
-
         }
-
-
-        /* =========================================
-           SCROLLBAR
-           ========================================= */
 
         ::-webkit-scrollbar {
 
@@ -1710,9 +1301,7 @@
 
             height:
                 7px;
-
         }
-
 
         ::-webkit-scrollbar-thumb {
 
@@ -1721,25 +1310,19 @@
 
             border-radius:
                 20px;
-
         }
-
 
         ::-webkit-scrollbar-thumb:hover {
 
             background:
                 var(--abenson-blue);
-
         }
-
 
         ::-webkit-scrollbar-track {
 
             background:
                 #e8f7fb;
-
         }
-
 
         /* =========================================
            MOBILE
@@ -1751,17 +1334,19 @@
 
                 padding-bottom:
                     125px;
-
             }
 
+            .password-card {
+
+                padding:
+                    30px 20px;
+            }
 
             header {
 
                 padding:
                     18px 10px 22px;
-
             }
-
 
             .abenson {
 
@@ -1770,9 +1355,7 @@
 
                 letter-spacing:
                     -2px;
-
             }
-
 
             .appliance {
 
@@ -1781,9 +1364,7 @@
 
                 letter-spacing:
                     -1px;
-
             }
-
 
             .fest {
 
@@ -1792,9 +1373,7 @@
 
                 padding:
                     3px 23px 5px;
-
             }
-
 
             .engine-title {
 
@@ -1803,9 +1382,7 @@
 
                 padding:
                     6px 14px;
-
             }
-
 
             .promo-cards {
 
@@ -1820,9 +1397,7 @@
 
                 margin:
                     10px auto 14px;
-
             }
-
 
             .promo-card {
 
@@ -1837,9 +1412,7 @@
 
                 border-radius:
                     8px;
-
             }
-
 
             .promo-icon {
 
@@ -1851,25 +1424,19 @@
 
                 font-size:
                     12px;
-
             }
-
 
             .promo-card strong {
 
                 font-size:
                     8px;
-
             }
-
 
             .promo-card span {
 
                 font-size:
                     7px;
-
             }
-
 
             .search-container {
 
@@ -1881,36 +1448,19 @@
 
                 margin-top:
                     17px;
-
             }
-
 
             .upload-title {
 
                 font-size:
                     16px;
-
             }
-
 
             .upload-description {
 
                 font-size:
                     11px;
-
             }
-
-
-            .upload-reminder {
-
-                font-size:
-                    12px;
-
-                padding:
-                    13px;
-
-            }
-
 
             th {
 
@@ -1919,9 +1469,7 @@
 
                 font-size:
                     11px;
-
             }
-
 
             td {
 
@@ -1930,25 +1478,19 @@
 
                 font-size:
                     11px;
-
             }
-
 
             .floating-panel {
 
                 width:
                     94%;
-
             }
-
 
             .reminder {
 
                 font-size:
                     10px;
-
             }
-
 
             #searchBox {
 
@@ -1957,17 +1499,13 @@
 
                 font-size:
                     12px;
-
             }
-
 
             footer {
 
                 padding:
                     13px;
-
             }
-
 
             .clickable-link {
 
@@ -1976,50 +1514,14 @@
 
                 font-size:
                     10px;
-
             }
-
-
-            .password-card {
-
-                padding:
-                    28px 20px;
-
-            }
-
-
-            .password-brand {
-
-                font-size:
-                    34px;
-
-            }
-
-
-            .password-appliance {
-
-                font-size:
-                    21px;
-
-            }
-
-
-            .password-fest {
-
-                font-size:
-                    21px;
-
-            }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
-
 
     <!-- =========================================
          PASSWORD SCREEN
@@ -2034,53 +1536,38 @@
             </div>
 
             <div class="password-appliance">
-                APPLIANCE
+                APPLIANCE FEST
             </div>
 
-            <div class="password-fest">
-                FEST
-            </div>
-
-            <div class="password-icon">
-                🔒
+            <div class="lock-icon">
+                🔐
             </div>
 
             <div class="password-title">
-                AV OMNIBUS SEARCH ENGINE
+                AV Omnibus Search Engine
             </div>
 
             <div class="password-description">
-
-                This is a restricted AV resource.
+                This tool is restricted to authorized AV users.
                 <br>
                 Please enter the access password to continue.
-
             </div>
 
             <input
                 type="password"
                 id="passwordInput"
-                placeholder="Enter access password"
+                placeholder="Enter password"
                 autocomplete="off"
             >
 
-            <button
-                type="button"
-                id="passwordButton"
-            >
-                🔓 PROCEED
+            <button id="passwordButton">
+                🔓 Proceed
             </button>
 
-            <div id="passwordError">
-
-                ❌ Incorrect password.
-
-            </div>
+            <div id="passwordError"></div>
 
             <div class="password-footer">
-
-                THIS IS FOR AV ONLY!
-
+                AV OMNIBUS SEARCH ENGINE • AUTHORIZED ACCESS ONLY
             </div>
 
         </div>
@@ -2089,11 +1576,10 @@
 
 
     <!-- =========================================
-         MAIN CONTENT
+         MAIN APPLICATION
          ========================================= -->
 
-    <div id="mainContent">
-
+    <div id="app">
 
         <!-- =========================================
              HEADER
@@ -2200,30 +1686,25 @@
 
 
         <!-- =========================================
-             FILE UPLOAD
+             AUTOMATIC OMNIBUS
              ========================================= -->
 
         <div class="search-container">
 
             <div class="upload-title">
-                📂 Upload Omnibus File
+                📂 Omnibus File
             </div>
 
             <div class="upload-description">
-
-                Select your Excel or CSV Omnibus file
-                to start searching.
-
+                The current Omnibus is automatically loaded.
+                No file upload is required.
             </div>
 
-            <div class="input-group">
-
-                <input
-                    type="file"
-                    id="fileInput"
-                    accept=".xlsx,.csv"
-                >
-
+            <div
+                id="fileStatus"
+                class="status-box status-loading"
+            >
+                ⏳ Loading Omnibus...
             </div>
 
         </div>
@@ -2237,19 +1718,11 @@
 
             <p class="upload-reminder">
 
-                🎯 <strong>Please upload the Omnibus first.</strong>
+                ⏳ <strong>Loading the Omnibus...</strong>
 
-                <br>
+                <br><br>
 
-                1️⃣ Choose File
-
-                <br>
-
-                2️⃣ Select the Omnibus
-
-                <br>
-
-                3️⃣ Search by SKU or keyword
+                Please wait while the current file is loaded.
 
             </p>
 
@@ -2290,11 +1763,10 @@
 
             </p>
 
-
             <input
                 type="text"
                 id="searchBox"
-                placeholder="🔎 Please upload the Omnibus first..."
+                placeholder="🔎 Loading Omnibus..."
                 disabled
             >
 
@@ -2313,40 +1785,51 @@
     <script>
 
         /* =========================================
-           PASSWORD SECURITY
+           PASSWORD SETTINGS
            ========================================= */
 
-        const ACCESS_PASSWORD =
-            "AV22088";
+        const ACCESS_PASSWORD = "AV22088";
 
+        const WRONG_PASSWORD_REDIRECT =
+            "https://pointerpointer.com/";
+
+
+        /* =========================================
+           VARIABLES
+           ========================================= */
+
+        let data = [];
+
+        let omnibusUploaded = false;
+
+
+        /* =========================================
+           PASSWORD LOGIN
+           ========================================= */
 
         const passwordScreen =
             document.getElementById(
                 "passwordScreen"
             );
 
-
-        const mainContent =
-            document.getElementById(
-                "mainContent"
-            );
-
-
         const passwordInput =
             document.getElementById(
                 "passwordInput"
             );
-
 
         const passwordButton =
             document.getElementById(
                 "passwordButton"
             );
 
-
         const passwordError =
             document.getElementById(
                 "passwordError"
+            );
+
+        const app =
+            document.getElementById(
+                "app"
             );
 
 
@@ -2357,33 +1840,29 @@
 
 
             if (
-                enteredPassword ===
-                ACCESS_PASSWORD
+                enteredPassword === ACCESS_PASSWORD
             ) {
 
                 passwordScreen.style.display =
                     "none";
 
-                mainContent.style.display =
+                app.style.display =
                     "block";
 
-                passwordInput.value =
-                    "";
-
-                passwordError.style.display =
-                    "none";
+                loadOmnibus();
 
                 return;
 
             }
 
 
-            /* =====================================
-               WRONG PASSWORD
-               ===================================== */
+            /*
+             * Incorrect password:
+             * redirect to pointerpointer.com
+             */
 
             window.location.href =
-                "https://eelslap.com/";
+                WRONG_PASSWORD_REDIRECT;
 
         }
 
@@ -2399,8 +1878,7 @@
             function(event) {
 
                 if (
-                    event.key ===
-                    "Enter"
+                    event.key === "Enter"
                 ) {
 
                     event.preventDefault();
@@ -2414,372 +1892,405 @@
 
 
         /* =========================================
-           VARIABLES
+           AUTOMATIC OMNIBUS LOADING
+           
+           IMPORTANT:
+           The Excel file must be named:
+
+           omnibus.xlsx
+
+           and must be in the SAME GitHub
+           repository/folder as index.html.
            ========================================= */
 
-        let data = [];
+        async function loadOmnibus() {
 
-        let omnibusUploaded = false;
-
-
-        /* =========================================
-           FILE INPUT
-           ========================================= */
-
-        document
-            .getElementById('fileInput')
-            .addEventListener(
-                'change',
-                handleFile
-            );
+            const status =
+                document.getElementById(
+                    "fileStatus"
+                );
 
 
-        /* =========================================
-           HANDLE FILE
-           ========================================= */
+            status.className =
+                "status-box status-loading";
 
-        function handleFile(event) {
-
-            const file =
-                event.target.files[0];
+            status.innerHTML =
+                "⏳ Loading current Omnibus...";
 
 
-            if (!file) {
+            try {
 
-                return;
+                /*
+                 * Add timestamp to prevent the browser
+                 * from displaying an old cached Excel file.
+                 */
+
+                const omnibusURL =
+                    "omnibus.xlsx?v=" +
+                    Date.now();
+
+
+                const response =
+                    await fetch(
+                        omnibusURL,
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Unable to download omnibus.xlsx"
+                    );
+
+                }
+
+
+                const arrayBuffer =
+                    await response.arrayBuffer();
+
+
+                const workbook =
+                    XLSX.read(
+                        arrayBuffer,
+                        {
+                            type: "array"
+                        }
+                    );
+
+
+                /* =====================================
+                   RESET DATA
+                   ===================================== */
+
+                data = [];
+
+
+                /* =====================================
+                   SHEETS TO SKIP
+                   ===================================== */
+
+                const sheetsToSkip = [
+
+                    "AV BUNDLE & ADD-ON DEALS PROMO",
+
+                    "APPLIANCE FEST",
+
+                    "TV PHASED-OUT"
+
+                ];
+
+
+                let searchableSheetCount = 0;
+
+
+                /* =====================================
+                   READ SHEETS
+                   ===================================== */
+
+                workbook.SheetNames.forEach(
+                    function(sheetName) {
+
+                        if (
+                            sheetsToSkip.includes(
+                                sheetName
+                            )
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        searchableSheetCount++;
+
+
+                        const sheet =
+                            workbook.Sheets[
+                                sheetName
+                            ];
+
+
+                        if (
+                            !sheet ||
+                            !sheet["!ref"]
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const range =
+                            XLSX.utils.decode_range(
+                                sheet["!ref"]
+                            );
+
+
+                        /* =================================
+                           READ EVERY ROW
+                           ================================= */
+
+                        for (
+                            let r = range.s.r;
+                            r <= range.e.r;
+                            r++
+                        ) {
+
+                            const row = [];
+
+
+                            /* =============================
+                               READ EVERY CELL
+                               ============================= */
+
+                            for (
+                                let c = range.s.c;
+                                c <= range.e.c;
+                                c++
+                            ) {
+
+                                const cellAddress =
+                                    XLSX.utils.encode_cell({
+                                        r: r,
+                                        c: c
+                                    });
+
+
+                                const cell =
+                                    sheet[cellAddress];
+
+
+                                let value = "";
+
+                                let hyperlink = "";
+
+
+                                /* =============================
+                                   GET CELL VALUE
+                                   ============================= */
+
+                                if (
+                                    cell &&
+                                    cell.v !== undefined &&
+                                    cell.v !== null
+                                ) {
+
+                                    value =
+                                        cell.v;
+
+                                }
+
+
+                                /* =============================
+                                   GET EXCEL HYPERLINK
+                                   ============================= */
+
+                                if (
+                                    cell &&
+                                    cell.l &&
+                                    cell.l.Target
+                                ) {
+
+                                    hyperlink =
+                                        cell.l.Target;
+
+                                }
+
+
+                                /* =============================
+                                   STORE CELL
+                                   ============================= */
+
+                                row.push({
+
+                                    value:
+                                        value,
+
+                                    hyperlink:
+                                        hyperlink
+
+                                });
+
+                            }
+
+
+                            /* =============================
+                               CHECK ROW
+                               ============================= */
+
+                            const hasData =
+                                row.some(
+                                    function(cell) {
+
+                                        return (
+
+                                            String(
+                                                cell.value
+                                            ).trim() !== ""
+
+                                            ||
+
+                                            cell.hyperlink !== ""
+
+                                        );
+
+                                    }
+                                );
+
+
+                            if (!hasData) {
+
+                                continue;
+
+                            }
+
+
+                            data.push(row);
+
+                        }
+
+                    }
+                );
+
+
+                /* =====================================
+                   ENABLE SEARCH
+                   ===================================== */
+
+                omnibusUploaded =
+                    true;
+
+
+                const searchBox =
+                    document.getElementById(
+                        "searchBox"
+                    );
+
+
+                searchBox.disabled =
+                    false;
+
+
+                searchBox.placeholder =
+                    "🔎 Search by SKU or keyword...";
+
+
+                /* =====================================
+                   STATUS
+                   ===================================== */
+
+                status.className =
+                    "status-box status-ready";
+
+                status.innerHTML = `
+                    ✅ Omnibus successfully loaded.
+                `;
+
+
+                /* =====================================
+                   READY MESSAGE
+                   ===================================== */
+
+                document.getElementById(
+                    "results"
+                ).innerHTML = `
+
+                    <p class="upload-reminder">
+
+                        ✅ <strong>Omnibus successfully loaded!</strong>
+
+                        <br><br>
+
+                        📚 ${
+                            searchableSheetCount
+                        }
+                        searchable sheet(s)
+
+                        <br>
+
+                        📊 ${
+                            data.length.toLocaleString()
+                        }
+                        records ready for searching
+
+                        <br><br>
+
+                        🔎 Search by SKU or keyword.
+
+                    </p>
+
+                `;
 
             }
 
+            catch(error) {
 
-            const reader =
-                new FileReader();
+                console.error(
+                    error
+                );
 
 
-            reader.onload =
-                function(e) {
+                omnibusUploaded =
+                    false;
 
-                    try {
 
-                        /* =====================================
-                           READ WORKBOOK
-                           ===================================== */
+                const searchBox =
+                    document.getElementById(
+                        "searchBox"
+                    );
 
-                        const workbook =
-                            XLSX.read(
-                                e.target.result,
-                                {
-                                    type: 'binary'
-                                }
-                            );
 
+                searchBox.disabled =
+                    true;
 
-                        /* =====================================
-                           RESET DATA
-                           ===================================== */
 
-                        data = [];
+                searchBox.placeholder =
+                    "🔎 Unable to load Omnibus";
 
 
-                        /* =====================================
-                           SHEETS TO SKIP
-                           ===================================== */
+                status.className =
+                    "status-box status-error";
 
-                        const sheetsToSkip = [
-                            "AV BUNDLE & ADD-ON DEALS PROMO",
-                            "APPLIANCE FEST",
-                            "TV PHASED-OUT"
-                        ];
+                status.innerHTML =
+                    "⚠️ Unable to load omnibus.xlsx";
 
 
-                        let searchableSheetCount = 0;
+                document.getElementById(
+                    "results"
+                ).innerHTML = `
 
+                    <p class="upload-reminder">
 
-                        /* =====================================
-                           READ SHEETS
-                           ===================================== */
+                        ⚠️ <strong>Unable to load the Omnibus.</strong>
 
-                        workbook.SheetNames.forEach(
-                            function(sheetName) {
+                        <br><br>
 
-                                if (
-                                    sheetsToSkip.includes(
-                                        sheetName
-                                    )
-                                ) {
+                        Please make sure that:
 
-                                    return;
+                        <br>
 
-                                }
+                        1️⃣ The Excel file is named
+                        <strong>omnibus.xlsx</strong>
 
+                        <br>
 
-                                searchableSheetCount++;
+                        2️⃣ It is uploaded to the
+                        same GitHub repository as
+                        <strong>index.html</strong>
 
+                        <br>
 
-                                const sheet =
-                                    workbook.Sheets[
-                                        sheetName
-                                    ];
+                        3️⃣ The file is committed/pushed
+                        to GitHub.
 
+                    </p>
 
-                                /* =================================
-                                   MAKE SURE SHEET HAS DATA
-                                   ================================= */
+                `;
 
-                                if (
-                                    !sheet ||
-                                    !sheet["!ref"]
-                                ) {
-
-                                    return;
-
-                                }
-
-
-                                /* =================================
-                                   GET SHEET RANGE
-                                   ================================= */
-
-                                const range =
-                                    XLSX.utils.decode_range(
-                                        sheet["!ref"]
-                                    );
-
-
-                                /* =================================
-                                   READ EVERY ROW
-                                   ================================= */
-
-                                for (
-                                    let r = range.s.r;
-                                    r <= range.e.r;
-                                    r++
-                                ) {
-
-                                    const row = [];
-
-
-                                    /* =============================
-                                       READ EVERY CELL
-                                       ============================= */
-
-                                    for (
-                                        let c = range.s.c;
-                                        c <= range.e.c;
-                                        c++
-                                    ) {
-
-                                        const cellAddress =
-                                            XLSX.utils.encode_cell({
-                                                r: r,
-                                                c: c
-                                            });
-
-
-                                        const cell =
-                                            sheet[cellAddress];
-
-
-                                        let value = "";
-
-                                        let hyperlink = "";
-
-
-                                        /* =============================
-                                           GET CELL VALUE
-                                           ============================= */
-
-                                        if (
-                                            cell &&
-                                            cell.v !== undefined &&
-                                            cell.v !== null
-                                        ) {
-
-                                            value =
-                                                cell.v;
-
-                                        }
-
-
-                                        /* =============================
-                                           GET EXCEL HYPERLINK
-                                           ============================= */
-
-                                        if (
-                                            cell &&
-                                            cell.l &&
-                                            cell.l.Target
-                                        ) {
-
-                                            hyperlink =
-                                                cell.l.Target;
-
-                                        }
-
-
-                                        /* =============================
-                                           STORE CELL
-                                           ============================= */
-
-                                        row.push({
-
-                                            value:
-                                                value,
-
-                                            hyperlink:
-                                                hyperlink
-
-                                        });
-
-                                    }
-
-
-                                    /* =============================
-                                       CHECK ROW
-                                       ============================= */
-
-                                    const hasData =
-                                        row.some(
-                                            function(cell) {
-
-                                                return (
-
-                                                    String(
-                                                        cell.value
-                                                    ).trim() !== ""
-
-                                                    ||
-
-                                                    cell.hyperlink !== ""
-
-                                                );
-
-                                            }
-                                        );
-
-
-                                    if (!hasData) {
-
-                                        continue;
-
-                                    }
-
-
-                                    data.push(row);
-
-                                }
-
-                            }
-                        );
-
-
-                        /* =====================================
-                           ENABLE SEARCH
-                           ===================================== */
-
-                        omnibusUploaded =
-                            true;
-
-
-                        const searchBox =
-                            document.getElementById(
-                                'searchBox'
-                            );
-
-
-                        searchBox.disabled =
-                            false;
-
-
-                        searchBox.placeholder =
-                            "🔎 Search by SKU or keyword...";
-
-
-                        /* =====================================
-                           SHOW READY MESSAGE
-                           ===================================== */
-
-                        document.getElementById(
-                            'results'
-                        ).innerHTML = `
-
-                            <p class="upload-reminder">
-
-                                ✅ <strong>Omnibus successfully uploaded!</strong>
-
-                                <br><br>
-
-                                📚 ${
-                                    searchableSheetCount
-                                }
-                                searchable sheet(s)
-
-                                <br>
-
-                                📊 ${
-                                    data.length.toLocaleString()
-                                }
-                                records ready for searching
-
-                                <br><br>
-
-                                🔎 Search by SKU or keyword.
-
-                            </p>
-
-                        `;
-
-                    }
-
-                    catch(error) {
-
-                        console.error(
-                            error
-                        );
-
-
-                        omnibusUploaded =
-                            false;
-
-
-                        const searchBox =
-                            document.getElementById(
-                                'searchBox'
-                            );
-
-
-                        searchBox.disabled =
-                            true;
-
-
-                        searchBox.placeholder =
-                            "🔎 Unable to read file";
-
-
-                        document.getElementById(
-                            'results'
-                        ).innerHTML = `
-
-                            <p class="upload-reminder">
-
-                                ⚠️ Unable to read this file.
-
-                                <br>
-
-                                Please upload a valid
-                                Excel or CSV file.
-
-                            </p>
-
-                        `;
-
-                    }
-
-                };
-
-
-            reader.readAsBinaryString(
-                file
-            );
+            }
 
         }
 
@@ -2792,16 +2303,18 @@
 
            Then press ENTER.
 
-           Opens in the SAME TAB.
+           Opens in SAME TAB.
            ========================================= */
 
         document
-            .getElementById('searchBox')
+            .getElementById("searchBox")
             .addEventListener(
-                'keydown',
+                "keydown",
                 function(event) {
 
-                    if (event.key !== 'Enter') {
+                    if (
+                        event.key !== "Enter"
+                    ) {
 
                         return;
 
@@ -2815,13 +2328,14 @@
 
 
                     if (
-                        query === 'nathaniel vinluan'
+                        query ===
+                        "nathaniel vinluan"
                     ) {
 
                         event.preventDefault();
 
                         window.location.href =
-                            'https://myshaky.com/love';
+                            "https://myshaky.com/love";
 
                     }
 
@@ -2834,16 +2348,18 @@
            ========================================= */
 
         document
-            .getElementById('searchBox')
+            .getElementById("searchBox")
             .addEventListener(
-                'input',
+                "input",
                 function() {
 
                     /* =====================================
                        SAFETY CHECK
                        ===================================== */
 
-                    if (!omnibusUploaded) {
+                    if (
+                        !omnibusUploaded
+                    ) {
 
                         return;
 
@@ -2867,7 +2383,7 @@
                     if (!query) {
 
                         document.getElementById(
-                            'results'
+                            "results"
                         ).innerHTML = `
 
                             <p class="upload-reminder">
@@ -3066,7 +2582,7 @@
 
             const resultsContainer =
                 document.getElementById(
-                    'results'
+                    "results"
                 );
 
 
@@ -3115,7 +2631,7 @@
                     ${
                         query
                             ? `for <strong>${escapeHTML(query)}</strong>`
-                            : ''
+                            : ""
                     }
 
                 </div>
@@ -3169,25 +2685,17 @@
 
                         <tr>
 
-                            <!-- SKU -->
-
                             <td>
                                 ${displayCell(
                                     row[0]
                                 )}
                             </td>
 
-
-                            <!-- ITEM DESCRIPTION -->
-
                             <td>
                                 ${displayCell(
                                     row[1]
                                 )}
                             </td>
-
-
-                            <!-- SRP -->
 
                             <td>
                                 ${escapeHTML(
@@ -3199,9 +2707,6 @@
                                 )}
                             </td>
 
-
-                            <!-- INSTALLMENT PRICE -->
-
                             <td>
                                 ${escapeHTML(
                                     formatPrice(
@@ -3211,9 +2716,6 @@
                                     )
                                 )}
                             </td>
-
-
-                            <!-- NET PRICE -->
 
                             <td>
                                 ${escapeHTML(
@@ -3225,17 +2727,11 @@
                                 )}
                             </td>
 
-
-                            <!-- PREMIUM / REMARKS -->
-
                             <td>
                                 ${displayCell(
                                     row[8]
                                 )}
                             </td>
-
-
-                            <!-- SPECIAL INSTRUCTION -->
 
                             <td>
                                 ${displayCell(
@@ -3259,10 +2755,6 @@
 
             `;
 
-
-            /* =====================================
-               SHOW TABLE
-               ===================================== */
 
             resultsContainer.innerHTML =
                 html;
