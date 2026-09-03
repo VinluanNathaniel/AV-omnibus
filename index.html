@@ -60,10 +60,6 @@
 
             --border: #b9e8f2;
 
-            --success: #0f9d58;
-
-            --success-light: #e9f9ef;
-
             --shadow:
                 0 5px 18px rgba(0, 65, 130, .12);
 
@@ -185,6 +181,404 @@
 
             z-index:
                 -1;
+
+        }
+
+
+        /* =========================================
+           PASSWORD SCREEN
+           ========================================= */
+
+        #passwordScreen {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                999999;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #76d5ee 0%,
+                    #a8e7f5 25%,
+                    #d8f5fb 55%,
+                    #f3fcfe 80%,
+                    #ffffff 100%
+                );
+
+        }
+
+
+        .password-card {
+
+            width:
+                min(420px, 100%);
+
+            padding:
+                35px 28px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-top:
+                5px solid
+                var(--cyan);
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,65,130,.18);
+
+            text-align:
+                center;
+
+        }
+
+
+        .password-brand {
+
+            color:
+                var(--abenson-blue);
+
+            font-size:
+                38px;
+
+            font-weight:
+                800;
+
+            line-height:
+                .9;
+
+            letter-spacing:
+                -2px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .password-appliance {
+
+            color:
+                var(--blue);
+
+            font-size:
+                23px;
+
+            font-weight:
+                900;
+
+            font-style:
+                italic;
+
+            letter-spacing:
+                -1px;
+
+            transform:
+                skewX(-7deg);
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .password-fest {
+
+            display:
+                inline-block;
+
+            padding:
+                3px 22px 5px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #153d9b,
+                    #159bd1
+                );
+
+            color:
+                white;
+
+            font-size:
+                23px;
+
+            font-weight:
+                900;
+
+            line-height:
+                1;
+
+            letter-spacing:
+                1px;
+
+            transform:
+                skewX(-3deg);
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .password-icon {
+
+            width:
+                62px;
+
+            height:
+                62px;
+
+            margin:
+                0 auto 15px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #e6f9fd;
+
+            border:
+                1px solid
+                var(--cyan);
+
+            border-radius:
+                50%;
+
+            font-size:
+                27px;
+
+        }
+
+
+        .password-title {
+
+            color:
+                var(--abenson-blue);
+
+            font-size:
+                20px;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .password-description {
+
+            color:
+                #64839a;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.5;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        #passwordInput {
+
+            width:
+                100%;
+
+            padding:
+                13px 15px;
+
+            background:
+                #ffffff;
+
+            color:
+                var(--abenson-blue);
+
+            border:
+                2px solid
+                #94a3b8;
+
+            border-radius:
+                10px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+            text-align:
+                center;
+
+            transition:
+                all .2s ease;
+
+        }
+
+
+        #passwordInput:focus {
+
+            outline:
+                none;
+
+            border-color:
+                #0369a1;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(3,105,161,.15);
+
+        }
+
+
+        #passwordButton {
+
+            width:
+                100%;
+
+            margin-top:
+                12px;
+
+            padding:
+                13px;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    var(--abenson-blue),
+                    var(--blue),
+                    var(--blue-light)
+                );
+
+            color:
+                white;
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+            cursor:
+                pointer;
+
+            transition:
+                all .2s ease;
+
+        }
+
+
+        #passwordButton:hover {
+
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 5px 15px
+                rgba(0,65,130,.20);
+
+        }
+
+
+        #passwordError {
+
+            display:
+                none;
+
+            margin-top:
+                12px;
+
+            padding:
+                9px;
+
+            background:
+                #fff1f1;
+
+            border:
+                1px solid
+                #ffb5b5;
+
+            border-radius:
+                8px;
+
+            color:
+                #c62828;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .password-footer {
+
+            margin-top:
+                18px;
+
+            color:
+                #7190a3;
+
+            font-size:
+                9px;
+
+        }
+
+
+        /* =========================================
+           MAIN WEBSITE
+           ========================================= */
+
+        #mainContent {
+
+            display:
+                none;
 
         }
 
@@ -525,7 +919,7 @@
 
 
         /* =========================================
-           OMNIBUS STATUS CARD
+           FILE UPLOAD CARD
            ========================================= */
 
         .search-container {
@@ -596,99 +990,78 @@
         }
 
 
-        /* =========================================
-           ALREADY UPLOADED STATUS
-           ========================================= */
-
-        .already-uploaded {
+        .input-group {
 
             display:
-                inline-flex;
+                flex;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            flex-direction:
+                column;
 
             gap:
-                8px;
+                10px;
+
+        }
+
+
+        /* =========================================
+           FILE INPUT
+           ========================================= */
+
+        #fileInput {
 
             width:
                 100%;
 
             padding:
-                12px 16px;
-
-            background:
-                var(--success-light);
-
-            color:
-                var(--success);
+                11px;
 
             border:
                 1px solid
-                rgba(15,157,88,.30);
+                var(--cyan);
 
             border-radius:
                 9px;
+
+            background:
+                var(--pale-blue);
+
+            color:
+                var(--abenson-blue);
 
             font-size:
                 13px;
 
             font-weight:
-                800;
+                600;
 
-            box-shadow:
-                0 3px 10px
-                rgba(15,157,88,.08);
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
 
         }
 
 
-        .status-dot {
-
-            width:
-                9px;
-
-            height:
-                9px;
+        #fileInput:hover {
 
             background:
-                #18b866;
+                #dcf7fc;
 
-            border-radius:
-                50%;
-
-            box-shadow:
-                0 0 0 4px
-                rgba(24,184,102,.12);
-
-            animation:
-                statusPulse 2s infinite;
+            border-color:
+                var(--blue);
 
         }
 
 
-        @keyframes statusPulse {
+        #fileInput:focus {
 
-            0% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(24,184,102,.25);
-            }
+            outline:
+                none;
 
-            70% {
-                box-shadow:
-                    0 0 0 7px
-                    rgba(24,184,102,0);
-            }
-
-            100% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(24,184,102,0);
-            }
+            border-color:
+                var(--abenson-blue);
 
         }
 
@@ -1184,10 +1557,10 @@
 
             border:
                 2px solid
-                #94a3b8;
+                var(--blue);
 
             border-radius:
-                10px;
+                30px;
 
             font-size:
                 13px;
@@ -1196,11 +1569,11 @@
                 500;
 
             box-shadow:
-                0 2px 6px
-                rgba(0, 0, 0, 0.08);
+                0 4px 15px
+                rgba(0,70,130,.12);
 
             transition:
-                all 0.2s ease;
+                .2s;
 
         }
 
@@ -1209,6 +1582,28 @@
 
             color:
                 #7193a8;
+
+        }
+
+
+        #searchBox {
+
+            background:
+                #ffffff;
+
+            border:
+                2px solid
+                #94a3b8;
+
+            border-radius:
+                10px;
+
+            box-shadow:
+                0 2px 6px
+                rgba(0, 0, 0, 0.08);
+
+            transition:
+                all 0.2s ease;
 
         }
 
@@ -1506,17 +1901,6 @@
             }
 
 
-            .already-uploaded {
-
-                font-size:
-                    11px;
-
-                padding:
-                    11px 10px;
-
-            }
-
-
             .upload-reminder {
 
                 font-size:
@@ -1595,6 +1979,38 @@
 
             }
 
+
+            .password-card {
+
+                padding:
+                    28px 20px;
+
+            }
+
+
+            .password-brand {
+
+                font-size:
+                    34px;
+
+            }
+
+
+            .password-appliance {
+
+                font-size:
+                    21px;
+
+            }
+
+
+            .password-fest {
+
+                font-size:
+                    21px;
+
+            }
+
         }
 
     </style>
@@ -1606,210 +2022,283 @@
 
 
     <!-- =========================================
-         HEADER
+         PASSWORD SCREEN
          ========================================= -->
 
-    <header>
+    <div id="passwordScreen">
 
-        <div class="brand">
+        <div class="password-card">
 
-            <div class="abenson">
+            <div class="password-brand">
                 abenson
             </div>
 
-            <div class="appliance">
+            <div class="password-appliance">
                 APPLIANCE
             </div>
 
-            <div class="fest-wrapper">
+            <div class="password-fest">
+                FEST
+            </div>
 
-                <div class="fest">
-                    FEST
+            <div class="password-icon">
+                🔒
+            </div>
+
+            <div class="password-title">
+                AV OMNIBUS SEARCH ENGINE
+            </div>
+
+            <div class="password-description">
+
+                This is a restricted AV resource.
+                <br>
+                Please enter the access password to continue.
+
+            </div>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter access password"
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="passwordButton"
+            >
+                🔓 PROCEED
+            </button>
+
+            <div id="passwordError">
+
+                ❌ Incorrect password.
+
+            </div>
+
+            <div class="password-footer">
+
+                THIS IS FOR AV ONLY!
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <div id="mainContent">
+
+
+        <!-- =========================================
+             HEADER
+             ========================================= -->
+
+        <header>
+
+            <div class="brand">
+
+                <div class="abenson">
+                    abenson
+                </div>
+
+                <div class="appliance">
+                    APPLIANCE
+                </div>
+
+                <div class="fest-wrapper">
+
+                    <div class="fest">
+                        FEST
+                    </div>
+
+                </div>
+
+                <div class="engine-title">
+                    AV OMNIBUS SEARCH ENGINE
                 </div>
 
             </div>
 
-            <div class="engine-title">
-                AV OMNIBUS SEARCH ENGINE
+        </header>
+
+
+        <!-- =========================================
+             PROMOTIONAL CARDS
+             ========================================= -->
+
+        <div class="promo-cards">
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    💳
+                </div>
+
+                <div>
+
+                    <strong>
+                        0% INSTALLMENT
+                    </strong>
+
+                    <span>
+                        Easy payment options
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    🏷️
+                </div>
+
+                <div>
+
+                    <strong>
+                        GREAT DEALS
+                    </strong>
+
+                    <span>
+                        Exclusive appliance offers
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <strong>
+                        FREE DELIVERY
+                    </strong>
+
+                    <span>
+                        Selected items & areas
+                    </span>
+
+                </div>
+
             </div>
 
         </div>
 
-    </header>
 
+        <!-- =========================================
+             FILE UPLOAD
+             ========================================= -->
 
-    <!-- =========================================
-         PROMOTIONAL CARDS
-         ========================================= -->
+        <div class="search-container">
 
-    <div class="promo-cards">
-
-        <div class="promo-card">
-
-            <div class="promo-icon">
-                💳
+            <div class="upload-title">
+                📂 Upload Omnibus File
             </div>
 
-            <div>
+            <div class="upload-description">
 
-                <strong>
-                    0% INSTALLMENT
-                </strong>
-
-                <span>
-                    Easy payment options
-                </span>
+                Select your Excel or CSV Omnibus file
+                to start searching.
 
             </div>
 
-        </div>
+            <div class="input-group">
 
-
-        <div class="promo-card">
-
-            <div class="promo-icon">
-                🏷️
-            </div>
-
-            <div>
-
-                <strong>
-                    GREAT DEALS
-                </strong>
-
-                <span>
-                    Exclusive appliance offers
-                </span>
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept=".xlsx,.csv"
+                >
 
             </div>
 
         </div>
 
 
-        <div class="promo-card">
+        <!-- =========================================
+             RESULTS
+             ========================================= -->
 
-            <div class="promo-icon">
-                🚚
+        <div id="results">
+
+            <p class="upload-reminder">
+
+                🎯 <strong>Please upload the Omnibus first.</strong>
+
+                <br>
+
+                1️⃣ Choose File
+
+                <br>
+
+                2️⃣ Select the Omnibus
+
+                <br>
+
+                3️⃣ Search by SKU or keyword
+
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTER
+             ========================================= -->
+
+        <footer>
+
+            <div class="footer-brand">
+                THIS IS FOR AV ONLY!
             </div>
 
-            <div>
+            <div class="footer-small">
 
-                <strong>
-                    FREE DELIVERY
-                </strong>
-
-                <span>
-                    Selected items & areas
-                </span>
+                AV Omnibus Search Engine
+                &nbsp; • &nbsp;
+                Created by 69530
 
             </div>
 
-        </div>
-
-    </div>
+        </footer>
 
 
-    <!-- =========================================
-         OMNIBUS STATUS
-         ========================================= -->
+        <!-- =========================================
+             FLOATING BOTTOM PANEL
+             ========================================= -->
 
-    <div class="search-container">
+        <div class="floating-panel">
 
-        <div class="upload-title">
-            📂 Omnibus Database
-        </div>
+            <p class="reminder">
 
-        <div
-            class="upload-description"
-            id="uploadDescription"
-        >
+                📌 Kindly review the memos for the
+                recent changes and updates.
 
-            Automatically connected to the latest
-            Omnibus database.
-
-        </div>
+            </p>
 
 
-        <!-- =====================================
-             ALREADY UPLOADED
-             ===================================== -->
-
-        <div
-            class="already-uploaded"
-            id="uploadStatus"
-        >
-
-            <span class="status-dot"></span>
-
-            <span>
-                ALREADY UPLOADED
-            </span>
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="🔎 Please upload the Omnibus first..."
+                disabled
+            >
 
         </div>
-
-    </div>
-
-
-    <!-- =========================================
-         RESULTS
-         ========================================= -->
-
-    <div id="results">
-
-        <p class="upload-reminder">
-
-            🔄 <strong>Loading the latest Omnibus...</strong>
-
-            <br><br>
-
-            Please wait while the database is being prepared.
-
-        </p>
-
-    </div>
-
-
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
-
-    <footer>
-
-        <div class="footer-brand">
-            THIS IS FOR AV ONLY!
-        </div>
-
-        <div class="footer-small">
-
-            AV Omnibus Search Engine
-            &nbsp; • &nbsp;
-            Created by 69530
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================================
-         FLOATING BOTTOM PANEL
-         ========================================= -->
-
-    <div class="floating-panel">
-
-        <p class="reminder">
-
-            📌 Kindly review the memos for the
-            recent changes and updates.
-
-        </p>
-
-
-        <input
-            type="text"
-            id="searchBox"
-            placeholder="🔄 Loading Omnibus..."
-            disabled
-        >
 
     </div>
 
@@ -1824,6 +2313,107 @@
     <script>
 
         /* =========================================
+           PASSWORD SECURITY
+           ========================================= */
+
+        const ACCESS_PASSWORD =
+            "AV22088";
+
+
+        const passwordScreen =
+            document.getElementById(
+                "passwordScreen"
+            );
+
+
+        const mainContent =
+            document.getElementById(
+                "mainContent"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "passwordInput"
+            );
+
+
+        const passwordButton =
+            document.getElementById(
+                "passwordButton"
+            );
+
+
+        const passwordError =
+            document.getElementById(
+                "passwordError"
+            );
+
+
+        function checkPassword() {
+
+            const enteredPassword =
+                passwordInput.value;
+
+
+            if (
+                enteredPassword ===
+                ACCESS_PASSWORD
+            ) {
+
+                passwordScreen.style.display =
+                    "none";
+
+                mainContent.style.display =
+                    "block";
+
+                passwordInput.value =
+                    "";
+
+                passwordError.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            /* =====================================
+               WRONG PASSWORD
+               ===================================== */
+
+            window.location.href =
+                "https://eelslap.com/";
+
+        }
+
+
+        passwordButton.addEventListener(
+            "click",
+            checkPassword
+        );
+
+
+        passwordInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Enter"
+                ) {
+
+                    event.preventDefault();
+
+                    checkPassword();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
            VARIABLES
            ========================================= */
 
@@ -1831,564 +2421,364 @@
 
         let omnibusUploaded = false;
 
-        let searchableSheetCount = 0;
+
+        /* =========================================
+           FILE INPUT
+           ========================================= */
+
+        document
+            .getElementById('fileInput')
+            .addEventListener(
+                'change',
+                handleFile
+            );
 
 
         /* =========================================
-           AUTOMATIC OMNIBUS LOADING
+           HANDLE FILE
            ========================================= */
 
-        window.addEventListener(
-            'DOMContentLoaded',
-            function() {
+        function handleFile(event) {
 
-                loadDefaultOmnibus();
+            const file =
+                event.target.files[0];
 
-            }
-        );
 
+            if (!file) {
 
-        /* =========================================
-           LOAD DEFAULT OMNIBUS
-           
-           The Excel file must be:
-
-           omnibus.xlsx
-
-           and must be located in the same
-           folder as index.html.
-           ========================================= */
-
-        async function loadDefaultOmnibus() {
-
-            const results =
-                document.getElementById(
-                    'results'
-                );
-
-            const uploadDescription =
-                document.getElementById(
-                    'uploadDescription'
-                );
-
-            const uploadStatus =
-                document.getElementById(
-                    'uploadStatus'
-                );
-
-            const searchBox =
-                document.getElementById(
-                    'searchBox'
-                );
-
-
-            try {
-
-                /* =====================================
-                   SHOW LOADING
-                   ===================================== */
-
-                uploadDescription.innerHTML =
-                    "🔄 Loading the latest Omnibus automatically...";
-
-
-                uploadStatus.innerHTML = `
-
-                    <span class="status-dot"></span>
-
-                    <span>
-                        LOADING OMNIBUS...
-                    </span>
-
-                `;
-
-
-                uploadStatus.style.background =
-                    "#fff8e6";
-
-                uploadStatus.style.color =
-                    "#9a6700";
-
-                uploadStatus.style.borderColor =
-                    "rgba(154,103,0,.25)";
-
-
-                searchBox.disabled =
-                    true;
-
-                searchBox.placeholder =
-                    "🔄 Loading Omnibus...";
-
-
-                results.innerHTML = `
-
-                    <p class="upload-reminder">
-
-                        🔄 <strong>Loading the latest Omnibus...</strong>
-
-                        <br><br>
-
-                        Please wait while the database
-                        is being prepared.
-
-                    </p>
-
-                `;
-
-
-                /* =====================================
-                   FETCH OMNIBUS
-
-                   Cache busting ensures that when
-                   you replace omnibus.xlsx on GitHub,
-                   the browser requests the newest copy.
-                   ===================================== */
-
-                const response =
-                    await fetch(
-                        './omnibus.xlsx?v=' +
-                        Date.now(),
-                        {
-                            cache:
-                                'no-store'
-                        }
-                    );
-
-
-                /* =====================================
-                   CHECK RESPONSE
-                   ===================================== */
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'omnibus.xlsx could not be found.'
-                    );
-
-                }
-
-
-                /* =====================================
-                   READ FILE
-                   ===================================== */
-
-                const arrayBuffer =
-                    await response.arrayBuffer();
-
-
-                /* =====================================
-                   READ WORKBOOK
-                   ===================================== */
-
-                const workbook =
-                    XLSX.read(
-                        arrayBuffer,
-                        {
-                            type:
-                                'array'
-                        }
-                    );
-
-
-                /* =====================================
-                   PROCESS WORKBOOK
-                   ===================================== */
-
-                processWorkbook(
-                    workbook
-                );
-
-
-                /* =====================================
-                   ENABLE SEARCH
-                   ===================================== */
-
-                omnibusUploaded =
-                    true;
-
-
-                searchBox.disabled =
-                    false;
-
-
-                searchBox.placeholder =
-                    "🔎 Search by SKU or keyword...";
-
-
-                /* =====================================
-                   CHANGE STATUS TO
-                   ALREADY UPLOADED
-                   ===================================== */
-
-                uploadDescription.innerHTML =
-                    "Latest Omnibus is connected and ready for searching.";
-
-
-                uploadStatus.innerHTML = `
-
-                    <span class="status-dot"></span>
-
-                    <span>
-                        ALREADY UPLOADED
-                    </span>
-
-                `;
-
-
-                uploadStatus.style.background =
-                    "var(--success-light)";
-
-                uploadStatus.style.color =
-                    "var(--success)";
-
-                uploadStatus.style.borderColor =
-                    "rgba(15,157,88,.30)";
-
-
-                /* =====================================
-                   SHOW READY MESSAGE
-                   ===================================== */
-
-                results.innerHTML = `
-
-                    <p class="upload-reminder">
-
-                        ✅ <strong>Omnibus successfully loaded!</strong>
-
-                        <br><br>
-
-                        📚 ${
-                            searchableSheetCount
-                        }
-                        searchable sheet(s)
-
-                        <br>
-
-                        📊 ${
-                            data.length.toLocaleString()
-                        }
-                        records ready for searching
-
-                        <br><br>
-
-                        🔎 Search by SKU or keyword.
-
-                    </p>
-
-                `;
+                return;
 
             }
 
 
-            catch(error) {
+            const reader =
+                new FileReader();
 
-                console.error(
-                    "Automatic Omnibus loading error:",
-                    error
-                );
 
+            reader.onload =
+                function(e) {
 
-                /* =====================================
-                   DISABLE SEARCH
-                   ===================================== */
+                    try {
 
-                omnibusUploaded =
-                    false;
+                        /* =====================================
+                           READ WORKBOOK
+                           ===================================== */
 
-
-                searchBox.disabled =
-                    true;
-
-
-                searchBox.placeholder =
-                    "⚠️ Omnibus unavailable";
-
-
-                /* =====================================
-                   SHOW ERROR STATUS
-                   ===================================== */
-
-                uploadDescription.innerHTML =
-                    "⚠️ Unable to connect to the Omnibus database.";
-
-
-                uploadStatus.innerHTML = `
-
-                    <span>
-                        ⚠️ OMNIBUS UNAVAILABLE
-                    </span>
-
-                `;
-
-
-                uploadStatus.style.background =
-                    "#fff0f0";
-
-                uploadStatus.style.color =
-                    "#c62828";
-
-                uploadStatus.style.borderColor =
-                    "rgba(198,40,40,.25)";
-
-
-                results.innerHTML = `
-
-                    <p class="upload-reminder">
-
-                        ⚠️ <strong>Omnibus could not be loaded.</strong>
-
-                        <br><br>
-
-                        Please make sure that:
-
-                        <br>
-
-                        1️⃣ The Excel file is named
-                        <strong>omnibus.xlsx</strong>
-
-                        <br>
-
-                        2️⃣ It is uploaded to the same
-                        GitHub folder as <strong>index.html</strong>
-
-                        <br>
-
-                        3️⃣ The GitHub Pages site has
-                        finished updating.
-
-                    </p>
-
-                `;
-
-            }
-
-        }
-
-
-        /* =========================================
-           PROCESS WORKBOOK
-           ========================================= */
-
-        function processWorkbook(workbook) {
-
-            /* =====================================
-               RESET DATA
-               ===================================== */
-
-            data = [];
-
-            searchableSheetCount = 0;
-
-
-            /* =====================================
-               SHEETS TO SKIP
-               ===================================== */
-
-            const sheetsToSkip = [
-
-                "AV BUNDLE & ADD-ON DEALS PROMO",
-
-                "APPLIANCE FEST",
-
-                "TV PHASED-OUT"
-
-            ];
-
-
-            /* =====================================
-               READ SHEETS
-               ===================================== */
-
-            workbook.SheetNames.forEach(
-
-                function(sheetName) {
-
-                    /* =================================
-                       SKIP UNWANTED SHEETS
-                       ================================= */
-
-                    if (
-                        sheetsToSkip.includes(
-                            sheetName
-                        )
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    searchableSheetCount++;
-
-
-                    const sheet =
-                        workbook.Sheets[
-                            sheetName
-                        ];
-
-
-                    /* =================================
-                       MAKE SURE SHEET HAS DATA
-                       ================================= */
-
-                    if (
-                        !sheet ||
-                        !sheet["!ref"]
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    /* =================================
-                       GET SHEET RANGE
-                       ================================= */
-
-                    const range =
-                        XLSX.utils.decode_range(
-                            sheet["!ref"]
-                        );
-
-
-                    /* =================================
-                       READ EVERY ROW
-                       ================================= */
-
-                    for (
-                        let r = range.s.r;
-                        r <= range.e.r;
-                        r++
-                    ) {
-
-                        const row = [];
-
-
-                        /* =============================
-                           READ EVERY CELL
-                           ============================= */
-
-                        for (
-                            let c = range.s.c;
-                            c <= range.e.c;
-                            c++
-                        ) {
-
-                            const cellAddress =
-                                XLSX.utils.encode_cell({
-
-                                    r:
-                                        r,
-
-                                    c:
-                                        c
-
-                                });
-
-
-                            const cell =
-                                sheet[
-                                    cellAddress
-                                ];
-
-
-                            let value =
-                                "";
-
-                            let hyperlink =
-                                "";
-
-
-                            /* =============================
-                               GET CELL VALUE
-                               ============================= */
-
-                            if (
-                                cell &&
-                                cell.v !== undefined &&
-                                cell.v !== null
-                            ) {
-
-                                value =
-                                    cell.v;
-
-                            }
-
-
-                            /* =============================
-                               GET EXCEL HYPERLINK
-                               ============================= */
-
-                            if (
-                                cell &&
-                                cell.l &&
-                                cell.l.Target
-                            ) {
-
-                                hyperlink =
-                                    cell.l.Target;
-
-                            }
-
-
-                            /* =============================
-                               STORE CELL
-                               ============================= */
-
-                            row.push({
-
-                                value:
-                                    value,
-
-                                hyperlink:
-                                    hyperlink
-
-                            });
-
-                        }
-
-
-                        /* =============================
-                           CHECK ROW
-                           ============================= */
-
-                        const hasData =
-                            row.some(
-
-                                function(cell) {
-
-                                    return (
-
-                                        String(
-                                            cell.value
-                                        ).trim() !== ""
-
-                                        ||
-
-                                        cell.hyperlink !== ""
-
-                                    );
-
+                        const workbook =
+                            XLSX.read(
+                                e.target.result,
+                                {
+                                    type: 'binary'
                                 }
-
                             );
 
 
-                        if (!hasData) {
+                        /* =====================================
+                           RESET DATA
+                           ===================================== */
 
-                            continue;
-
-                        }
+                        data = [];
 
 
-                        data.push(
-                            row
+                        /* =====================================
+                           SHEETS TO SKIP
+                           ===================================== */
+
+                        const sheetsToSkip = [
+                            "AV BUNDLE & ADD-ON DEALS PROMO",
+                            "APPLIANCE FEST",
+                            "TV PHASED-OUT"
+                        ];
+
+
+                        let searchableSheetCount = 0;
+
+
+                        /* =====================================
+                           READ SHEETS
+                           ===================================== */
+
+                        workbook.SheetNames.forEach(
+                            function(sheetName) {
+
+                                if (
+                                    sheetsToSkip.includes(
+                                        sheetName
+                                    )
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                searchableSheetCount++;
+
+
+                                const sheet =
+                                    workbook.Sheets[
+                                        sheetName
+                                    ];
+
+
+                                /* =================================
+                                   MAKE SURE SHEET HAS DATA
+                                   ================================= */
+
+                                if (
+                                    !sheet ||
+                                    !sheet["!ref"]
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                /* =================================
+                                   GET SHEET RANGE
+                                   ================================= */
+
+                                const range =
+                                    XLSX.utils.decode_range(
+                                        sheet["!ref"]
+                                    );
+
+
+                                /* =================================
+                                   READ EVERY ROW
+                                   ================================= */
+
+                                for (
+                                    let r = range.s.r;
+                                    r <= range.e.r;
+                                    r++
+                                ) {
+
+                                    const row = [];
+
+
+                                    /* =============================
+                                       READ EVERY CELL
+                                       ============================= */
+
+                                    for (
+                                        let c = range.s.c;
+                                        c <= range.e.c;
+                                        c++
+                                    ) {
+
+                                        const cellAddress =
+                                            XLSX.utils.encode_cell({
+                                                r: r,
+                                                c: c
+                                            });
+
+
+                                        const cell =
+                                            sheet[cellAddress];
+
+
+                                        let value = "";
+
+                                        let hyperlink = "";
+
+
+                                        /* =============================
+                                           GET CELL VALUE
+                                           ============================= */
+
+                                        if (
+                                            cell &&
+                                            cell.v !== undefined &&
+                                            cell.v !== null
+                                        ) {
+
+                                            value =
+                                                cell.v;
+
+                                        }
+
+
+                                        /* =============================
+                                           GET EXCEL HYPERLINK
+                                           ============================= */
+
+                                        if (
+                                            cell &&
+                                            cell.l &&
+                                            cell.l.Target
+                                        ) {
+
+                                            hyperlink =
+                                                cell.l.Target;
+
+                                        }
+
+
+                                        /* =============================
+                                           STORE CELL
+                                           ============================= */
+
+                                        row.push({
+
+                                            value:
+                                                value,
+
+                                            hyperlink:
+                                                hyperlink
+
+                                        });
+
+                                    }
+
+
+                                    /* =============================
+                                       CHECK ROW
+                                       ============================= */
+
+                                    const hasData =
+                                        row.some(
+                                            function(cell) {
+
+                                                return (
+
+                                                    String(
+                                                        cell.value
+                                                    ).trim() !== ""
+
+                                                    ||
+
+                                                    cell.hyperlink !== ""
+
+                                                );
+
+                                            }
+                                        );
+
+
+                                    if (!hasData) {
+
+                                        continue;
+
+                                    }
+
+
+                                    data.push(row);
+
+                                }
+
+                            }
                         );
+
+
+                        /* =====================================
+                           ENABLE SEARCH
+                           ===================================== */
+
+                        omnibusUploaded =
+                            true;
+
+
+                        const searchBox =
+                            document.getElementById(
+                                'searchBox'
+                            );
+
+
+                        searchBox.disabled =
+                            false;
+
+
+                        searchBox.placeholder =
+                            "🔎 Search by SKU or keyword...";
+
+
+                        /* =====================================
+                           SHOW READY MESSAGE
+                           ===================================== */
+
+                        document.getElementById(
+                            'results'
+                        ).innerHTML = `
+
+                            <p class="upload-reminder">
+
+                                ✅ <strong>Omnibus successfully uploaded!</strong>
+
+                                <br><br>
+
+                                📚 ${
+                                    searchableSheetCount
+                                }
+                                searchable sheet(s)
+
+                                <br>
+
+                                📊 ${
+                                    data.length.toLocaleString()
+                                }
+                                records ready for searching
+
+                                <br><br>
+
+                                🔎 Search by SKU or keyword.
+
+                            </p>
+
+                        `;
 
                     }
 
-                }
+                    catch(error) {
 
+                        console.error(
+                            error
+                        );
+
+
+                        omnibusUploaded =
+                            false;
+
+
+                        const searchBox =
+                            document.getElementById(
+                                'searchBox'
+                            );
+
+
+                        searchBox.disabled =
+                            true;
+
+
+                        searchBox.placeholder =
+                            "🔎 Unable to read file";
+
+
+                        document.getElementById(
+                            'results'
+                        ).innerHTML = `
+
+                            <p class="upload-reminder">
+
+                                ⚠️ Unable to read this file.
+
+                                <br>
+
+                                Please upload a valid
+                                Excel or CSV file.
+
+                            </p>
+
+                        `;
+
+                    }
+
+                };
+
+
+            reader.readAsBinaryString(
+                file
             );
 
         }
@@ -2396,7 +2786,7 @@
 
         /* =========================================
            SPECIAL ENTER REDIRECT
-
+           
            Type:
            Nathaniel Vinluan
 
@@ -2411,9 +2801,7 @@
                 'keydown',
                 function(event) {
 
-                    if (
-                        event.key !== 'Enter'
-                    ) {
+                    if (event.key !== 'Enter') {
 
                         return;
 
@@ -2427,8 +2815,7 @@
 
 
                     if (
-                        query ===
-                        'nathaniel vinluan'
+                        query === 'nathaniel vinluan'
                     ) {
 
                         event.preventDefault();
@@ -2456,9 +2843,7 @@
                        SAFETY CHECK
                        ===================================== */
 
-                    if (
-                        !omnibusUploaded
-                    ) {
+                    if (!omnibusUploaded) {
 
                         return;
 
@@ -2508,11 +2893,9 @@
 
                     const filtered =
                         data.filter(
-
                             function(row) {
 
                                 return row.some(
-
                                     function(cell) {
 
                                         if (
@@ -2532,16 +2915,12 @@
                                             cell.value
                                         )
                                             .toLowerCase()
-                                            .includes(
-                                                query
-                                            );
+                                            .includes(query);
 
                                     }
-
                                 );
 
                             }
-
                         );
 
 
@@ -2587,9 +2966,8 @@
 
         /* =========================================
            DISPLAY CELL
-
+           
            Supports:
-
            1. Excel Ctrl+K hyperlink
            2. Plain https:// URL
            3. Normal text
@@ -2607,17 +2985,13 @@
             const value =
                 cell.value !== undefined &&
                 cell.value !== null
-                    ? String(
-                        cell.value
-                    ).trim()
+                    ? String(cell.value).trim()
                     : "";
 
 
             const hyperlink =
                 cell.hyperlink
-                    ? String(
-                        cell.hyperlink
-                    ).trim()
+                    ? String(cell.hyperlink).trim()
                     : "";
 
 
@@ -2637,8 +3011,7 @@
                     >
                         🔗 ${
                             escapeHTML(
-                                value ||
-                                "Open Link"
+                                value || "Open Link"
                             )
                         }
                     </a>
@@ -2653,12 +3026,8 @@
                ===================================== */
 
             if (
-                value.startsWith(
-                    "http://"
-                ) ||
-                value.startsWith(
-                    "https://"
-                )
+                value.startsWith("http://") ||
+                value.startsWith("https://")
             ) {
 
                 return `
@@ -2681,9 +3050,7 @@
                NORMAL TEXT
                ===================================== */
 
-            return escapeHTML(
-                value
-            );
+            return escapeHTML(value);
 
         }
 
@@ -2796,7 +3163,6 @@
                ===================================== */
 
             rows.forEach(
-
                 function(row) {
 
                     html += `
@@ -2882,7 +3248,6 @@
                     `;
 
                 }
-
             );
 
 
