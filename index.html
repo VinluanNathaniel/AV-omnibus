@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AV Omnibus Search Engine</title>
+    <title>Abenson Happier Holidays • AV Omnibus Search Engine</title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -28,13 +28,15 @@
         }
 
         :root {
-            --abenson-blue: #111a9e;
+            --abenson-blue: #1026a8;
             --dark-blue: #082b8f;
-            --blue: #075eb7;
-            --blue-light: #1598d0;
-            --cyan: #27c5e8;
-            --sky-blue: #75d6ef;
-            --pale-blue: #e9faff;
+            --blue: #1267c4;
+            --blue-light: #4ab9ef;
+            --cyan: #7bdcff;
+            --sky-blue: #66c9f1;
+            --pale-blue: #eaf8ff;
+            --holiday-gold: #f6c453;
+            --holiday-gold-light: #ffe08a;
             --white: #ffffff;
             --text-dark: #122b6d;
             --text: #315878;
@@ -120,289 +122,296 @@
         }
 
         /* =========================================
+           HAPPIER HOLIDAYS THEME
+           ========================================= */
+
+        body::marker { content: none; }
+
+        .holiday-sparkle {
+            position: fixed;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255,255,255,.95);
+            opacity: .9;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .holiday-sparkle.s1 { top: 28px; left: 8%; }
+        .holiday-sparkle.s2 { top: 92px; right: 13%; width: 5px; height: 5px; }
+        .holiday-sparkle.s3 { top: 150px; left: 17%; width: 4px; height: 4px; }
+        .holiday-sparkle.s4 { top: 205px; right: 7%; width: 6px; height: 6px; }
+
+        .holiday-burst {
+            position: fixed;
+            width: 90px;
+            height: 90px;
+            pointer-events: none;
+            opacity: .8;
+            z-index: 0;
+        }
+
+        .holiday-burst::before, .holiday-burst::after {
+            content: '';
+            position: absolute;
+            inset: 42px 0;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, transparent 0 9px, rgba(255,255,255,.95) 10px 12px);
+            transform: rotate(35deg);
+        }
+
+        .holiday-burst::after { transform: rotate(-35deg); }
+        .holiday-burst.left { top: 8px; left: -18px; }
+        .holiday-burst.right { top: 20px; right: -18px; transform: rotate(18deg); }
+
+        .holiday-gold-text { color: var(--holiday-gold); }
+
+        /* =========================================
            PASSWORD SCREEN
            ========================================= */
 
         #passwordScreen {
-
             position: fixed;
-
             inset: 0;
-
             z-index: 999999;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 20px;
-
+            overflow: hidden;
             background:
-                linear-gradient(
-                    180deg,
-                    #76d5ee 0%,
-                    #b8ebf7 45%,
-                    #ffffff 100%
-                );
+                linear-gradient(180deg, #69c8ee 0%, #9bdff5 34%, #d9f4fb 72%, #ffffff 100%);
         }
 
-        .password-card {
+        #passwordScreen::before {
+            content: '';
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            top: -260px;
+            left: -180px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.16);
+            filter: blur(20px);
+        }
 
-            width: 100%;
+        #passwordScreen::after {
+            content: '';
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: -190px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.20);
+            filter: blur(25px);
+        }
 
-            max-width: 430px;
+        .password-holiday-burst {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            opacity: .9;
+        }
 
-            padding: 35px 28px;
+        .password-holiday-burst::before,
+        .password-holiday-burst::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 2px;
+            transform-origin: center;
+            background: repeating-linear-gradient(90deg, transparent 0 8px, rgba(255,255,255,.95) 9px 11px);
+        }
 
+        .password-holiday-burst::before { transform: translate(-50%,-50%) rotate(35deg); }
+        .password-holiday-burst::after { transform: translate(-50%,-50%) rotate(-35deg); }
+        .password-holiday-burst.left { top: 10px; left: -18px; }
+        .password-holiday-burst.right { top: 18px; right: -18px; transform: rotate(12deg); }
+
+        .password-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 12px rgba(255,255,255,.95);
+        }
+        .password-sparkle.s1 { top: 12%; left: 17%; }
+        .password-sparkle.s2 { top: 18%; right: 23%; width: 5px; height: 5px; }
+        .password-sparkle.s3 { top: 35%; left: 9%; width: 4px; height: 4px; }
+        .password-sparkle.s4 { top: 32%; right: 10%; width: 6px; height: 6px; }
+
+        .password-shell {
+            position: relative;
+            z-index: 2;
+            width: min(520px, 100%);
             text-align: center;
-
-            background:
-                rgba(255,255,255,.97);
-
-            border:
-                1px solid var(--border);
-
-            border-top:
-                4px solid var(--cyan);
-
-            border-radius:
-                18px;
-
-            box-shadow:
-                0 15px 45px rgba(0,70,130,.18);
-
         }
 
         .password-brand {
-
-            color:
-                var(--abenson-blue);
-
-            font-size:
-                clamp(38px, 10vw, 55px);
-
-            font-weight:
-                800;
-
-            line-height:
-                .9;
-
-            letter-spacing:
-                -3px;
-
-            margin-bottom:
-                7px;
-
+            color: var(--abenson-blue);
+            font-size: clamp(48px, 13vw, 76px);
+            font-weight: 800;
+            line-height: .82;
+            letter-spacing: -5px;
+            text-transform: lowercase;
+            text-shadow: 0 2px 0 rgba(255,255,255,.25);
         }
 
-        .password-appliance {
+        .password-happier {
+            margin-top: 16px;
+            color: #ffe09a;
+            font-size: clamp(34px, 9vw, 56px);
+            font-weight: 900;
+            line-height: .9;
+            letter-spacing: -2px;
+            text-shadow: 0 3px 10px rgba(30,75,120,.16);
+        }
 
-            color:
-                var(--blue);
+        .password-holidays {
+            margin-top: 5px;
+            color: #fff;
+            font-size: clamp(31px, 8vw, 53px);
+            font-weight: 900;
+            line-height: .95;
+            letter-spacing: -2px;
+            text-shadow: 0 3px 10px rgba(30,75,120,.18);
+        }
 
-            font-size:
-                26px;
+        .password-promo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 24px auto 14px;
+            width: min(450px, 100%);
+            overflow: hidden;
+            border: 3px solid #f6c453;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1a2ba5 0%, #174db5 55%, #1e78c9 100%);
+            box-shadow: 0 12px 30px rgba(0,65,130,.20);
+            text-align: left;
+        }
 
-            font-weight:
-                900;
+        .password-promo-section {
+            min-height: 88px;
+            padding: 14px 16px;
+            color: white;
+        }
 
-            font-style:
-                italic;
+        .password-promo-section + .password-promo-section {
+            border-left: 2px solid rgba(255,255,255,.9);
+        }
 
-            transform:
-                skewX(-7deg);
+        .password-promo-small {
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1.05;
+        }
 
-            margin-bottom:
-                18px;
+        .password-promo-main {
+            margin-top: 4px;
+            font-size: 17px;
+            font-weight: 900;
+            line-height: 1.0;
+        }
+
+        .password-card {
+            width: min(430px, 100%);
+            margin: 14px auto 0;
+            padding: 23px 24px 20px;
+            text-align: center;
+            background: rgba(255,255,255,.97);
+            border: 2px solid #f6c453;
+            border-top: 4px solid var(--abenson-blue);
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0,70,130,.22);
         }
 
         .lock-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff6d9;
+            border: 2px solid #f6c453;
+            font-size: 24px;
+        }
 
-            width:
-                65px;
-
-            height:
-                65px;
-
-            margin:
-                0 auto 15px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                #e6f9fd;
-
-            border:
-                2px solid var(--cyan);
-
-            font-size:
-                30px;
+        .password-appliance {
+            display: none;
         }
 
         .password-title {
-
-            color:
-                var(--abenson-blue);
-
-            font-size:
-                20px;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                7px;
+            color: var(--abenson-blue);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 7px;
         }
 
         .password-description {
-
-            color:
-                #64839a;
-
-            font-size:
-                12px;
-
-            line-height:
-                1.5;
-
-            margin-bottom:
-                20px;
+            color: #64839a;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 16px;
         }
 
         #passwordInput {
-
-            width:
-                100%;
-
-            padding:
-                13px 15px;
-
-            border:
-                2px solid #94a3b8;
-
-            border-radius:
-                10px;
-
-            background:
-                white;
-
-            color:
-                var(--abenson-blue);
-
-            font-size:
-                14px;
-
-            text-align:
-                center;
-
-            outline:
-                none;
-
-            transition:
-                .2s;
+            width: 100%;
+            padding: 13px 15px;
+            border: 2px solid #94a3b8;
+            border-radius: 10px;
+            background: white;
+            color: var(--abenson-blue);
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+            transition: .2s;
         }
 
         #passwordInput:focus {
-
-            border-color:
-                var(--blue);
-
-            box-shadow:
-                0 0 0 4px
-                rgba(3,105,161,.15);
+            border-color: #f0b92f;
+            box-shadow: 0 0 0 4px rgba(246,196,83,.18);
         }
 
         #passwordButton {
-
-            width:
-                100%;
-
-            margin-top:
-                11px;
-
-            padding:
-                13px;
-
-            border:
-                none;
-
-            border-radius:
-                10px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--abenson-blue),
-                    var(--blue),
-                    var(--blue-light)
-                );
-
-            color:
-                white;
-
-            font-size:
-                13px;
-
-            font-weight:
-                800;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
+            width: 100%;
+            margin-top: 11px;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #111a9e, #1a55bb, #2797d3);
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s;
         }
 
         #passwordButton:hover {
-
-            transform:
-                translateY(-1px);
-
-            box-shadow:
-                0 5px 15px
-                rgba(0,70,130,.2);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0,70,130,.2);
         }
 
         #passwordError {
-
-            min-height:
-                18px;
-
-            margin-top:
-                10px;
-
-            color:
-                #dc2626;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
+            min-height: 18px;
+            margin-top: 10px;
+            color: #dc2626;
+            font-size: 11px;
+            font-weight: 700;
         }
 
         .password-footer {
-
-            margin-top:
-                18px;
-
-            color:
-                #8aa0af;
-
-            font-size:
-                9px;
+            margin-top: 12px;
+            color: #8aa0af;
+            font-size: 9px;
         }
 
         /* =========================================
@@ -1528,11 +1537,302 @@
             }
         }
 
+
+        /* =========================================================
+           HAPPIER HOLIDAYS — ALL-OVER APPLICATION THEME
+           ========================================================= */
+
+        body {
+            background:
+                radial-gradient(circle at 12% 5%, rgba(255,255,255,.30) 0 3px, transparent 4px),
+                radial-gradient(circle at 88% 10%, rgba(255,255,255,.28) 0 2px, transparent 3px),
+                linear-gradient(
+                    180deg,
+                    #66c8ee 0%,
+                    #8ddcf3 22%,
+                    #c8f0fa 48%,
+                    #eaf9fc 72%,
+                    #ffffff 100%
+                );
+        }
+
+        #app {
+            position: relative;
+            z-index: 1;
+        }
+
+        .holiday-main-header {
+            position: relative;
+            overflow: hidden;
+            padding: 22px 15px 28px;
+            border-bottom: 3px solid var(--holiday-gold);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.16),
+                    rgba(255,255,255,.04)
+                );
+        }
+
+        .holiday-main-header::before,
+        .holiday-main-header::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: .65;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.95) 0 2px,
+                    transparent 3px
+                );
+            background-size: 18px 18px;
+        }
+
+        .holiday-main-header::before {
+            top: -58px;
+            left: -30px;
+        }
+
+        .holiday-main-header::after {
+            top: -55px;
+            right: -30px;
+        }
+
+        .holiday-main-header .abenson {
+            position: relative;
+            z-index: 2;
+            color: #1026a8;
+            text-shadow: 0 2px 0 rgba(255,255,255,.35);
+        }
+
+        .main-happier {
+            position: relative;
+            z-index: 2;
+            margin-top: 8px;
+            color: #ffe08a;
+            font-size: clamp(35px, 5.5vw, 64px);
+            font-weight: 900;
+            line-height: .9;
+            letter-spacing: -2px;
+            text-shadow:
+                0 3px 0 rgba(210,148,35,.28),
+                0 5px 12px rgba(0,55,110,.15);
+        }
+
+        .main-holidays {
+            position: relative;
+            z-index: 2;
+            margin-top: 3px;
+            color: #ffffff;
+            font-size: clamp(33px, 5.2vw, 61px);
+            font-weight: 900;
+            line-height: .95;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 10px rgba(0,65,130,.18);
+        }
+
+        .holiday-main-header .engine-title {
+            position: relative;
+            z-index: 2;
+            margin-top: 15px;
+            color: #1026a8;
+            border: 2px solid var(--holiday-gold);
+            box-shadow: 0 5px 14px rgba(0,70,130,.12);
+        }
+
+        .promo-cards {
+            position: relative;
+            z-index: 2;
+            width: 92%;
+            max-width: 900px;
+            margin: 16px auto 18px;
+            gap: 9px;
+        }
+
+        .promo-card {
+            min-height: 68px;
+            padding: 10px 12px;
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #172aa8 0%,
+                    #174fb8 58%,
+                    #237dc9 100%
+                );
+            border: 2px solid var(--holiday-gold);
+            border-radius: 12px;
+            box-shadow:
+                0 6px 18px rgba(0,65,130,.16),
+                inset 0 1px 0 rgba(255,255,255,.18);
+        }
+
+        .promo-card:hover {
+            border-color: #ffe08a;
+            box-shadow: 0 8px 20px rgba(0,65,130,.20);
+        }
+
+        .promo-icon {
+            background: rgba(255,224,138,.18);
+            border: 1px solid rgba(255,224,138,.55);
+        }
+
+        .promo-card strong {
+            color: #ffffff;
+            font-size: 10px;
+        }
+
+        .promo-card span {
+            color: #ffe08a;
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--holiday-gold);
+            border-top: 4px solid var(--holiday-gold);
+            background: rgba(255,255,255,.95);
+            box-shadow: 0 7px 22px rgba(0,65,130,.14);
+        }
+
+        .upload-title {
+            color: #1026a8;
+        }
+
+        .status-box {
+            background: #eefaff;
+            border-color: var(--holiday-gold);
+        }
+
+        #results {
+            position: relative;
+            z-index: 2;
+        }
+
+        #results .upload-reminder {
+            border: 2px solid var(--holiday-gold);
+            border-left: 5px solid var(--holiday-gold);
+            box-shadow: 0 5px 16px rgba(0,70,130,.10);
+        }
+
+        table {
+            border: 2px solid var(--holiday-gold);
+            box-shadow: 0 7px 20px rgba(0,65,130,.14);
+        }
+
+        th {
+            background:
+                linear-gradient(
+                    90deg,
+                    #1427a3 0%,
+                    #1764bd 70%,
+                    #218bd0 100%
+                );
+            border-bottom: 3px solid var(--holiday-gold);
+        }
+
+        tbody tr:hover td {
+            background: #fff8df;
+            color: #1026a8;
+        }
+
+        td:first-child {
+            color: #1026a8;
+        }
+
+        td:nth-child(3),
+        td:nth-child(4),
+        td:nth-child(5) {
+            color: #1267c4;
+        }
+
+        .clickable-link {
+            color: #1267c4;
+            background: #eefaff;
+            border-color: var(--holiday-gold);
+        }
+
+        .clickable-link:hover {
+            color: white;
+            background: #1267c4;
+            border-color: #1267c4;
+        }
+
+        .floating-panel {
+            z-index: 9999;
+        }
+
+        .reminder {
+            border: 2px solid var(--holiday-gold);
+            border-left: 4px solid var(--holiday-gold);
+            background: rgba(255,255,255,.98);
+        }
+
+        #searchBox {
+            border: 2px solid var(--holiday-gold);
+            box-shadow: 0 3px 10px rgba(0,65,130,.12);
+        }
+
+        #searchBox:focus {
+            border-color: #1267c4;
+            box-shadow:
+                0 0 0 4px rgba(246,196,83,.24),
+                0 7px 20px rgba(3,105,161,.16);
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+            background:
+                linear-gradient(
+                    90deg,
+                    #12249e,
+                    #1760bd,
+                    #12249e
+                );
+            border-top: 4px solid var(--holiday-gold);
+        }
+
+        .footer-brand {
+            color: #ffe08a;
+        }
+
+        /* Keep the holiday treatment coherent on small screens. */
+        @media (max-width: 600px) {
+            .holiday-main-header {
+                padding: 18px 10px 23px;
+            }
+
+            .main-happier {
+                font-size: 39px;
+            }
+
+            .main-holidays {
+                font-size: 37px;
+            }
+
+            .promo-card {
+                min-height: 56px;
+                padding: 7px;
+            }
+        }
+
     </style>
 
 </head>
 
 <body>
+
+    <div class="holiday-burst left"></div>
+    <div class="holiday-burst right"></div>
+    <div class="holiday-sparkle s1"></div>
+    <div class="holiday-sparkle s2"></div>
+    <div class="holiday-sparkle s3"></div>
+    <div class="holiday-sparkle s4"></div>
 
     <!-- =========================================
          PASSWORD SCREEN
@@ -1540,45 +1840,59 @@
 
     <div id="passwordScreen">
 
-        <div class="password-card">
+        <div class="password-holiday-burst left"></div>
+        <div class="password-holiday-burst right"></div>
+        <div class="password-sparkle s1"></div>
+        <div class="password-sparkle s2"></div>
+        <div class="password-sparkle s3"></div>
+        <div class="password-sparkle s4"></div>
 
-            <div class="password-brand">
-                abenson
+        <div class="password-shell">
+
+            <div class="password-brand">abenson</div>
+            <div class="password-happier">HAPPIER</div>
+            <div class="password-holidays">HOLIDAYS</div>
+
+            <div class="password-promo">
+                <div class="password-promo-section">
+                    <div class="password-promo-small">0% &nbsp; BUY NOW</div>
+                    <div class="password-promo-main">PAY LATER</div>
+                    <div class="password-promo-small" style="margin-top:7px;">HOLIDAY BUNDLES</div>
+                </div>
+                <div class="password-promo-section">
+                    <div class="password-promo-small">abensonrewards</div>
+                    <div class="password-promo-small">EXCLUSIVE</div>
+                    <div class="password-promo-main">EXTRA<br>eCASHBACK</div>
+                </div>
             </div>
 
-            <div class="password-appliance">
-                APPLIANCE FEST
-            </div>
+            <div class="password-card">
+                <div class="lock-icon">🔐</div>
 
-            <div class="lock-icon">
-                🔐
-            </div>
+                <div class="password-title">AV Omnibus Search Engine</div>
 
-            <div class="password-title">
-                AV Omnibus Search Engine
-            </div>
+                <div class="password-description">
+                    This tool is restricted to authorized AV users.
+                    <br>
+                    Please enter the access password to continue.
+                </div>
 
-            <div class="password-description">
-                This tool is restricted to authorized AV users.
-                <br>
-                Please enter the access password to continue.
-            </div>
+                <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                >
 
-            <input
-                type="password"
-                id="passwordInput"
-                placeholder="Enter password"
-                autocomplete="off"
-            >
+                <button id="passwordButton">
+                    🔓 Proceed
+                </button>
 
-            <button id="passwordButton">
-                🔓 Proceed
-            </button>
+                <div id="passwordError"></div>
 
-            <div id="passwordError"></div>
-
-            <div class="password-footer">
-                AV OMNIBUS SEARCH ENGINE • AUTHORIZED ACCESS ONLY
+                <div class="password-footer">
+                    AV OMNIBUS SEARCH ENGINE • AUTHORIZED ACCESS ONLY
+                </div>
             </div>
 
         </div>
@@ -1596,7 +1910,7 @@
              HEADER
              ========================================= -->
 
-        <header>
+        <header class="holiday-main-header">
 
             <div class="brand">
 
@@ -1604,16 +1918,12 @@
                     abenson
                 </div>
 
-                <div class="appliance">
-                    APPLIANCE
+                <div class="main-happier">
+                    HAPPIER
                 </div>
 
-                <div class="fest-wrapper">
-
-                    <div class="fest">
-                        FEST
-                    </div>
-
+                <div class="main-holidays">
+                    HOLIDAYS
                 </div>
 
                 <div class="engine-title">
@@ -1632,65 +1942,27 @@
         <div class="promo-cards">
 
             <div class="promo-card">
-
-                <div class="promo-icon">
-                    💳
-                </div>
-
+                <div class="promo-icon">💳</div>
                 <div>
-
-                    <strong>
-                        0% INSTALLMENT
-                    </strong>
-
-                    <span>
-                        Easy payment options
-                    </span>
-
+                    <strong>0% BUY NOW</strong>
+                    <span>PAY LATER</span>
                 </div>
-
             </div>
 
-
             <div class="promo-card">
-
-                <div class="promo-icon">
-                    🏷️
-                </div>
-
+                <div class="promo-icon">🛒</div>
                 <div>
-
-                    <strong>
-                        GREAT DEALS
-                    </strong>
-
-                    <span>
-                        Exclusive appliance offers
-                    </span>
-
+                    <strong>HOLIDAY BUNDLES</strong>
+                    <span>Special holiday offers</span>
                 </div>
-
             </div>
 
-
             <div class="promo-card">
-
-                <div class="promo-icon">
-                    🚚
-                </div>
-
+                <div class="promo-icon">🪙</div>
                 <div>
-
-                    <strong>
-                        FREE DELIVERY
-                    </strong>
-
-                    <span>
-                        Selected items & areas
-                    </span>
-
+                    <strong>EXTRA eCASHBACK</strong>
+                    <span>abensonrewards exclusive</span>
                 </div>
-
             </div>
 
         </div>
@@ -1747,7 +2019,7 @@
         <footer>
 
             <div class="footer-brand">
-                THIS IS FOR AV ONLY!
+                HAPPIER HOLIDAYS • AV ONLY
             </div>
 
             <div class="footer-small">
